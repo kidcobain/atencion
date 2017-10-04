@@ -1,0 +1,133 @@
+
+ {'Caroní':
+ 	['Cachamay', 'Chirica', 'Dalla Costa', 'Once de Abril', 'Simón Bolívar', 'Unare', 'Universidad', 'Vista al Sol', 'Pozo Verde', 'Yocoima', '5 de Julio'], 
+
+'Cedeño':
+	['Cedeño', 'Altagracia', 'Ascensión Farreras', 'Guaniamo', 'La Urbana', 'Pijiguaos'],
+	 'El Callao':['El Callao'],
+
+'Gran Sabana':
+	['Gran Sabana', 'Ikabarú'],
+
+'Heres':
+	['Catedral', 'Zea', 'Orinoco', 'José Antonio Páez', 'Marhuanta', 'Agua Salada', 'Vista Hermosa', 'La Sabanita', 'Panapana'
+'Padre Pedro Chien':
+	['Padre Pedro Chien],
+ 'Piar':
+ 	['Andrés Eloy Blanco', 'Pedro Cova', 'Upata']
+
+ 'Angostura (Raúl Leoni)'
+
+	 Raúl Leoni
+	 Barceloneta
+	 Santa Bárbara
+	 San Francisco
+
+ Roscio
+
+	 Roscio
+	 Salóm
+
+ Sifontes
+
+	 Tumeremo
+	 Dalla Costa
+	 San Isidro
+
+ Sucre
+
+	 Sucre
+	 Aripao
+	 Guarataro
+	 Las Majadas
+	 Moitaco
+
+
+var myObj = { "name":"John", "age":31, "city":"New York" };
+
+var municipios = ['Caroní', 'Cedeño', 'El' Callao, 'Gran' Sabana, 'Heres', 'Padre' Pedro Chien, 'Piar', 'Angostura' (Raúl Leoni), 'Roscio', 'Sifontes', 'Sucre'];
+
+var parroquias = ['Cachamay','Chirica','Dalla Costa','Once de Abril','Simón Bolívar','Unare','Universidad','Vista al Sol','Pozo Verde','Yocoima','5 de Julio','Cedeño','Altagracia','Ascensión Farreras','Guaniamo','La Urbana','Pijiguaos','El Callao','Gran Sabana','Ikabarú','Catedral','Zea','Orinoco','José Antonio Páez','Marhuanta','Agua Salada','Vista Hermosa','La Sabanita','Panapana','Padre Pedro Chien','Andrés Eloy Blanco','Pedro Cova','Upata','Raúl Leoni','Barceloneta','Santa Bárbara','San Francisco','Roscio','Salóm','Tumeremo','Dalla Costa','San Isidro','Sucre','Aripao','Guarataro','Las Majadas','Moitaco'];
+
+
+
+Municipio Caroní
+
+	Parroquia Cachamay
+	Parroquia Chirica
+	Parroquia Dalla Costa
+	Parroquia Once de Abril
+	Parroquia Simón Bolívar
+	Parroquia Unare
+	Parroquia Universidad
+	Parroquia Vista al Sol
+	Parroquia Pozo Verde
+	Parroquia Yocoima
+	Parroquia 5 de Julio
+
+Municipio Cedeño
+
+	Parroquia Cedeño
+	Parroquia Altagracia
+	Parroquia Ascensión Farreras
+	Parroquia Guaniamo
+	Parroquia La Urbana
+	Parroquia Pijiguaos
+
+Municipio El Callao
+
+	Parroquia El Callao
+
+Municipio Gran Sabana
+
+	Parroquia Gran Sabana
+	Parroquia Ikabarú
+
+Municipio Heres
+
+	Parroquia Catedral
+	Parroquia Zea
+	Parroquia Orinoco
+	Parroquia José Antonio Páez
+	Parroquia Marhuanta
+	Parroquia Agua Salada
+	Parroquia Vista Hermosa
+	Parroquia La Sabanita
+	Parroquia Panapana
+
+Municipio Padre Pedro Chien
+
+	Parroquia Padre Pedro Chien
+
+Municipio Piar
+
+	Parroquia Andrés Eloy Blanco
+	Parroquia Pedro Cova
+	Parroquia Upata
+
+Municipio Angostura (Raúl Leoni)
+
+	Parroquia Raúl Leoni
+	Parroquia Barceloneta
+	Parroquia Santa Bárbara
+	Parroquia San Francisco
+
+Municipio Roscio
+
+	Parroquia Roscio
+	Parroquia Salóm
+
+Municipio Sifontes
+
+	Parroquia Tumeremo
+	Parroquia Dalla Costa
+	Parroquia San Isidro
+
+Municipio Sucre
+
+	Parroquia Sucre
+	Parroquia Aripao
+	Parroquia Guarataro
+	Parroquia Las Majadas
+	Parroquia Moitaco
+
