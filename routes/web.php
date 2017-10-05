@@ -44,7 +44,6 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/solicitud/{id}/edicion', 'SolicitudController@edicion');
 
 	Route::get('/solicitud/{id}/eliminar', 'SolicitudController@eliminar');
-	Route::post('/solicitud/{id}/eliminar', 'SolicitudController@eliminar');
 
 	//Route::get('/persona/buscar?cedula={cedula}', 'PersonaController@busqueda');
 	Route::post('/persona/registrar', 'PersonaController@store'); 

@@ -35,12 +35,14 @@
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
+                    @guest
+                    @else
                     <ul class="nav navbar-nav">
                         <li><a href="/personas">Personas</a></li>
                         <li><a href="/solicitudes">Solicitudes</a></li>
                         <li><a href="/funcionarios">Funcionarios</a></li>
                     </ul>
-
+                    @endguest
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
@@ -78,6 +80,5 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
-    <script src="{{ asset('js/sweetalert.min.js') }}"></script>
 </body>
 </html>

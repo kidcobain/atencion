@@ -116,12 +116,12 @@
                   <!-- <table width="100%"> -->
                   <thead>
                     <tr>
-                      <th>lugar</th>
-                      <th>tipo</th>
-                      <th>solicitud</th>
-                      <th>observaciones</th>
-                      <th>fundo</th>
-                      <th>funcionario</th>
+                      <th>Lugar</th>
+                      <th>Tipo</th>
+                      <th>Solicitud</th>
+                      <th>Observaciones</th>
+                      <th>Fundo</th>
+                      <th>Funcionario</th>
                       <th></th>
                     </tr>
                   </thead>

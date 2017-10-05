@@ -1,0 +1,67 @@
+formulario registro
+
+	ordenar campos: cedula, nombre apellido, sexo, departamento, cargo, telefono, direccion, usuario, correo, contraseña, confirmar
+
+v	poner etiquetas capitalizadas
+
+	lista desplegable para campo sexo cargo y departamento
+
+	indicar campos obligatorios
+
+	desabilitar tipos de datos no utilizados en campos
+
+	notificacion al realizar acciones en sistema
+
+	confimarcion para realizar acciones en sistema
+
+v	no mostrar menu en registro ni login
+
+v	no iniciar sesion automaticamente luego de registro
+
+
+
+login
+
+v	redirigir a listado de personas luego de login
+
+
+formulario registro de peronas
+
+v	estilos en listado de personas registradas //preguntar por acortar campos
+
+v	etiquetas de campos capitalizadas
+
+	select en persona natural o juridica
+
+	campo rif y representante solo para persona juridica
+
+	select nivel educativo : primaria, secundaria, bachiderato, tsu, universitario
+
+
+	select para municipio
+
+	campos organizacion y email no obligatorios
+
+
+
+solicitudes
+
+	cambiar campo solicitud por motivo
+
+	llenado automatico de los campos de informacion de persona en la solicitud
+
+	campos observaciones y funcionario no obligatorio
+
+
+
+//http://itsolutionstuff.com/post/laravel-5-implement-flash-messages-with-exampleexample.html
+
+http://itsolutionstuff.com/category/laravelexample.html/?page=2
+
+http://itsolutionstuff.com/post/how-to-use-sweetalert-message-box-in-laravel-5example.html
+
+http://itsolutionstuff.com/post/laravel-55-crud-example-from-scratchexample.html
+
+http://itsolutionstuff.com/post/how-to-create-middleware-with-parameters-in-laravel-5example.html
+
+	
