@@ -9,9 +9,10 @@
                     <form class="form-horizontal" method="POST" action="/persona/registrar">
                         {{ csrf_field() }}
                         <div class="form-group{{ $errors->has('cedula') ? ' has-error' : '' }}">
-                            <label for="cedula" class="col-md-4 control-label">Cedula</label>
+                            <label for="cedula" class="col-md-4 control-label">* Cedula</label>
                             <div class="col-md-6">
-                                <input id="cedula" type="text" class="form-control" name="cedula" value="{{ old('cedula') }}" required autofocus>
+                                <input id="cedula" type="number" class="form-control" name="cedula" value="{{ old('cedula') }}" required autofocus>
+                                <!-- onkeyup="this.value=this.value.replace(/[^\d]/,'')" -->
                                 @if ($errors->has('cedula'))
                                 <span class="help-block">
                                     <strong>{{ $errors->first('cedula') }}</strong>
@@ -20,7 +21,7 @@
                             </div>
                         </div>
                         <div class="form-group{{ $errors->has('nombre') ? ' has-error' : '' }}">
-                            <label for="nombre" class="col-md-4 control-label">Nombre</label>
+                            <label for="nombre" class="col-md-4 control-label">* Nombre</label>
                             <div class="col-md-6">
                                 <input id="nombre" type="text" class="form-control" name="nombre" value="{{ old('nombre') }}" required autofocus>
                                 @if ($errors->has('nombre'))
@@ -31,7 +32,7 @@
                             </div>
                         </div>
                         <div class="form-group{{ $errors->has('apellido') ? ' has-error' : '' }}">
-                            <label for="apellido" class="col-md-4 control-label">Apellido</label>
+                            <label for="apellido" class="col-md-4 control-label">* Apellido</label>
                             <div class="col-md-6">
                                 <input id="apellido" type="text" class="form-control" name="apellido" value="{{ old('apellido') }}" required autofocus>
                                 @if ($errors->has('apellido'))
@@ -42,7 +43,7 @@
                             </div>
                         </div>
                         <div class="form-group{{ $errors->has('sexo') ? ' has-error' : '' }}">
-                            <label for="sexo" class="col-md-4 control-label">Sexo</label>
+                            <label for="sexo" class="col-md-4 control-label">* Sexo</label>
                             <div class="col-md-6">
                                 <input id="sexo" type="text" class="form-control" name="sexo" value="{{ old('sexo') }}" required autofocus>
                                 @if ($errors->has('sexo'))
@@ -53,7 +54,7 @@
                             </div>
                         </div>
                         <div class="form-group{{ $errors->has('tipo') ? ' has-error' : '' }}">
-                            <label for="tipo" class="col-md-4 control-label">Tipo</label>
+                            <label for="tipo" class="col-md-4 control-label">* Tipo</label>
                             <div class="col-md-6">
                                 <input id="tipo" type="text" class="form-control" name="tipo" value="{{ old('tipo') }}" required autofocus>
                                 @if ($errors->has('tipo'))
@@ -64,7 +65,7 @@
                             </div>
                         </div>
                         <div class="form-group{{ $errors->has('rif') ? ' has-error' : '' }}">
-                            <label for="rif" class="col-md-4 control-label">Rif</label>
+                            <label for="rif" class="col-md-4 control-label">** Rif</label>
                             <div class="col-md-6">
                                 <input id="rif" type="text" class="form-control" name="rif" value="{{ old('rif') }}" required autofocus>
                                 @if ($errors->has('rif'))
@@ -75,7 +76,7 @@
                             </div>
                         </div>
                         <div class="form-group{{ $errors->has('representante') ? ' has-error' : '' }}">
-                            <label for="representante" class="col-md-4 control-label">Representante</label>
+                            <label for="representante" class="col-md-4 control-label">** Representante</label>
                             <div class="col-md-6">
                                 <input id="representante" type="text" class="form-control" name="representante" value="{{ old('representante') }}" required autofocus>
                                 @if ($errors->has('representante'))
@@ -86,7 +87,7 @@
                             </div>
                         </div>
                         <div class="form-group{{ $errors->has('nivel_educativo') ? ' has-error' : '' }}">
-                            <label for="nivel_educativo" class="col-md-4 control-label">Nivel educativo</label>
+                            <label for="nivel_educativo" class="col-md-4 control-label">* Nivel educativo</label>
                             <div class="col-md-6">
                                 <input id="nivel_educativo" type="text" class="form-control" name="nivel_educativo" value="{{ old('nivel_educativo') }}" required autofocus>
                                 @if ($errors->has('nivel_educativo'))
@@ -97,7 +98,7 @@
                             </div>
                         </div>
                         <div class="form-group{{ $errors->has('municipio') ? ' has-error' : '' }}">
-                            <label for="municipio" class="col-md-4 control-label">Municipio</label>
+                            <label for="municipio" class="col-md-4 control-label">* Municipio</label>
                             <div class="col-md-6">
                                 <input id="municipio" type="text" class="form-control" name="municipio" value="{{ old('municipio') }}" required autofocus>
                                 @if ($errors->has('municipio'))
@@ -108,7 +109,7 @@
                             </div>
                         </div>
                         <div class="form-group{{ $errors->has('parroquia') ? ' has-error' : '' }}">
-                            <label for="parroquia" class="col-md-4 control-label">Parroquia</label>
+                            <label for="parroquia" class="col-md-4 control-label">* Parroquia</label>
                             <div class="col-md-6">
                                 <input id="parroquia" type="text" class="form-control" name="parroquia" value="{{ old('parroquia') }}" required autofocus>
                                 @if ($errors->has('parroquia'))
@@ -119,7 +120,7 @@
                             </div>
                         </div>
                         <div class="form-group{{ $errors->has('sector') ? ' has-error' : '' }}">
-                            <label for="sector" class="col-md-4 control-label">Sector</label>
+                            <label for="sector" class="col-md-4 control-label">* Sector</label>
                             <div class="col-md-6">
                                 <input id="sector" type="text" class="form-control" name="sector" value="{{ old('sector') }}" required autofocus>
                                 @if ($errors->has('sector'))
@@ -130,7 +131,7 @@
                             </div>
                         </div>
                         <div class="form-group{{ $errors->has('direccion') ? ' has-error' : '' }}">
-                            <label for="direccion" class="col-md-4 control-label">Direccion</label>
+                            <label for="direccion" class="col-md-4 control-label">* Direccion</label>
                             <div class="col-md-6">
                                 <input id="direccion" type="text" class="form-control" name="direccion" value="{{ old('direccion') }}" required autofocus>
                                 @if ($errors->has('direccion'))
@@ -141,7 +142,7 @@
                             </div>
                         </div>
                         <div class="form-group{{ $errors->has('unidad_produccion') ? ' has-error' : '' }}">
-                            <label for="unidad_produccion" class="col-md-4 control-label">Unidad de produccion</label>
+                            <label for="unidad_produccion" class="col-md-4 control-label">* Unidad de produccion</label>
                             <div class="col-md-6">
                                 <input id="unidad_produccion" type="text" class="form-control" name="unidad_produccion" value="{{ old('unidad_produccion') }}" required autofocus>
                                 @if ($errors->has('unidad_produccion'))
@@ -152,7 +153,7 @@
                             </div>
                         </div>
                         <div class="form-group{{ $errors->has('organizacion') ? ' has-error' : '' }}">
-                            <label for="organizacion" class="col-md-4 control-label">Organizacion</label>
+                            <label for="organizacion" class="col-md-4 control-label">* Organizacion</label>
                             <div class="col-md-6">
                                 <input id="organizacion" type="text" class="form-control" name="organizacion" value="{{ old('organizacion') }}" required autofocus>
                                 @if ($errors->has('organizacion'))
@@ -163,7 +164,7 @@
                             </div>
                         </div>
                         <div class="form-group{{ $errors->has('telefono') ? ' has-error' : '' }}">
-                            <label for="telefono" class="col-md-4 control-label">Telefono</label>
+                            <label for="telefono" class="col-md-4 control-label">* Telefono</label>
                             <div class="col-md-6">
                                 <input id="telefono" type="text" class="form-control" name="telefono" value="{{ old('telefono') }}" required autofocus>
                                 @if ($errors->has('telefono'))
@@ -192,6 +193,8 @@
                                 </button>
                             </div>
                         </div>
+                        <p>* Los campos marcados con * son requisito obligatorio para el registro</p>
+                        <p>** Los campos marcados con ** son requisito obligatorio para el registro de persona juridica</p>
                     </form>
                 </div>
             </div>

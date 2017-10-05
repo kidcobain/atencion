@@ -79,7 +79,7 @@ class RegisterController extends Controller
             'email' => 'required|string|email|max:50|unique:funcionarios',
             'nombre' => 'required|string|max:50|min:5',
             'apellido' => 'required|string|max:50|min:5',
-            'sexo' => 'required|string|max:1',
+            'sexo' => 'required|string',
             'telefono' => 'required|string|min:10|max:11',
             'direccion' => 'required|string|max:255',
             'cargo' => 'required|string|max:50',

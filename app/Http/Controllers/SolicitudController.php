@@ -45,7 +45,7 @@ class SolicitudController extends Controller
     {
         //dd($request);
         //dd($request->cedula);
-        /*
+        
         $request->validate([
             'lugar' => 'required|string|max:50|min:5',
             'tipo' => 'required|string|max:255',
@@ -53,10 +53,10 @@ class SolicitudController extends Controller
             'observaciones' => 'required|string|max:255',
             'fundo' => 'required|string|max:255',
             'persona_Cedula' => 'required|string|max:255',
-            'funcionario_Cedula' => 'required|string|max:255',
+            'funcionario_Cedula' => 'string|max:255',
             
         ]);
-        */
+        
          solicitudes::create([
             'lugar' => $request->lugar,
             'tipo' => $request->tipo,

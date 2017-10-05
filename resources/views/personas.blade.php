@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container" style="margin-left:0;">
+<div class="container" style="margin-left:0; width: unset;">
   <a href="/registrarpersona">Agregar persona</a>
   <div class="row">
     <form action="/persona/buscar" method="get" accept-charset="utf-8">
@@ -11,9 +11,7 @@
   </div>
   <div class="row">
     <div class="panel panel-default">
-      <div class="panel-heading">
-        asdfsdf
-        </div>
+      
 
       <div class="panel-body">
         <table width="100%" class="table table-bordered table-striped table-responsive">
@@ -78,5 +76,6 @@
 
     </div>
   </div>
+</div>
 </div>
 @endsection

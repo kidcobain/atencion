@@ -12,7 +12,7 @@
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('lugar') ? ' has-error' : '' }}">
-                            <label for="lugar" class="col-md-4 control-label">Lugar</label>
+                            <label for="lugar" class="col-md-4 control-label">* Lugar</label>
 
                             <div class="col-md-6">
                                 <input id="lugar" type="text" class="form-control" name="lugar" value="{{ old('lugar') }}" required autofocus>
@@ -25,7 +25,7 @@
                             </div>
                         </div>
                         <div class="form-group{{ $errors->has('tipo') ? ' has-error' : '' }}">
-                            <label for="tipo" class="col-md-4 control-label">Tipo</label>
+                            <label for="tipo" class="col-md-4 control-label">* Tipo</label>
 
                             <div class="col-md-6">
                                 <input id="tipo" type="text" class="form-control" name="tipo" value="{{ old('tipo') }}" required autofocus>
@@ -38,7 +38,7 @@
                             </div>
                         </div>
                         <div class="form-group{{ $errors->has('solicitud') ? ' has-error' : '' }}">
-                            <label for="solicitud" class="col-md-4 control-label">Solicitud</label>
+                            <label for="solicitud" class="col-md-4 control-label">* Solicitud</label>
 
                             <div class="col-md-6">
                                 <input id="solicitud" type="text" class="form-control" name="solicitud" value="{{ old('solicitud') }}" required autofocus>
@@ -51,7 +51,7 @@
                             </div>
                         </div>
                         <div class="form-group{{ $errors->has('observaciones') ? ' has-error' : '' }}">
-                            <label for="observaciones" class="col-md-4 control-label">Observaciones</label>
+                            <label for="observaciones" class="col-md-4 control-label"> Observaciones</label>
 
                             <div class="col-md-6">
                                 <input id="observaciones" type="text" class="form-control" name="observaciones" value="{{ old('observaciones') }}" required autofocus>
@@ -64,7 +64,7 @@
                             </div>
                         </div>
                         <div class="form-group{{ $errors->has('fundo') ? ' has-error' : '' }}">
-                            <label for="fundo" class="col-md-4 control-label">Fundo</label>
+                            <label for="fundo" class="col-md-4 control-label">* Fundo</label>
 
                             <div class="col-md-6">
                                 <input id="fundo" type="text" class="form-control" name="fundo" value="{{ old('fundo') }}" required autofocus>
@@ -77,7 +77,7 @@
                             </div>
                         </div>
                         <div class="form-group{{ $errors->has('cedula') ? ' has-error' : '' }}">
-                            <label for="cedula" class="col-md-4 control-label">Cedula</label>
+                            <label for="cedula" class="col-md-4 control-label">* Cedula</label>
 
                             <div class="col-md-6">
                                 <input id="cedula" type="text" class="form-control" name="cedula" value="{{ old('cedula') }}" required autofocus>
@@ -110,6 +110,7 @@
                                 </button>
                             </div>
                         </div>
+                        <p>* Los campos marcados con * son requisito obligatorio para el registro</p>
                     </form>
                 </div>
             </div>

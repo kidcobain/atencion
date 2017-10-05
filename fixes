@@ -1,18 +1,18 @@
 formulario registro
 
-	ordenar campos: cedula, nombre apellido, sexo, departamento, cargo, telefono, direccion, usuario, correo, contraseña, confirmar
+v	ordenar campos: cedula, nombre apellido, sexo, departamento, cargo, telefono, direccion, usuario, correo, contraseña
 
 v	poner etiquetas capitalizadas
 
-	lista desplegable para campo sexo cargo y departamento
+v	lista desplegable para campo sexo cargo y departamento
 
-	indicar campos obligatorios
+v	indicar campos obligatorios
 
-	desabilitar tipos de datos no utilizados en campos
+v	desabilitar tipos de datos no utilizados en campos
 
 	notificacion al realizar acciones en sistema
 
-	confimarcion para realizar acciones en sistema
+	confirmacion para realizar acciones en sistema
 
 v	no mostrar menu en registro ni login
 
@@ -31,7 +31,7 @@ v	estilos en listado de personas registradas //preguntar por acortar campos
 
 v	etiquetas de campos capitalizadas
 
-	select en persona natural o juridica
+v	select en persona natural o juridica
 
 	campo rif y representante solo para persona juridica
 
@@ -40,18 +40,18 @@ v	etiquetas de campos capitalizadas
 
 	select para municipio
 
-	campos organizacion y email no obligatorios
+v	campos organizacion y email no obligatorios
 
 
 
 solicitudes
 
-	cambiar campo solicitud por motivo
+x	cambiar campo solicitud por motivo
 
 	llenado automatico de los campos de informacion de persona en la solicitud
 
 	campos observaciones y funcionario no obligatorio
-
+v
 
 
 //http://itsolutionstuff.com/post/laravel-5-implement-flash-messages-with-exampleexample.html
