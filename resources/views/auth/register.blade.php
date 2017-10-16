@@ -15,7 +15,7 @@
                             <label for="cedula" class="col-md-4 control-label">* Cedula</label>
 
                             <div class="col-md-6">
-                                <input id="cedula" type="text" class="form-control" name="cedula" value="{{ old('cedula') }}" required autofocus>
+                                <input id="cedula" type="text" onKeyPress="return soloNumeros(event)" class="form-control" name="cedula" value="{{ old('cedula') }}" required autofocus>
 
                                 @if ($errors->has('cedula'))
                                     <span class="help-block">
@@ -197,4 +197,10 @@
         </div>
     </div>
 </div>
+<script>
+    function soloNumeros(e){
+        var key = window.Event ? e.which : e.keyCode
+        return (key >= 48 && key <= 57)
+    }
+</script>
 @endsection

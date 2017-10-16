@@ -38,7 +38,7 @@ $factory->define(App\personas::class, function (Faker $faker) {
         'apellido' => $faker->lastName,
         'sexo' => $faker->randomElement($array = array ('m','f')),
         'rif' =>$faker->randomNumber($nbDigits = 9, $strict = false),
-        'tipo' =>$faker->randomElement($array = array ('natural','juridico')),
+        'tipo' =>$faker->randomElement($array = array ('natural','juridica')),
         'cedula' => $faker->randomNumber($nbDigits = 8, $strict = false),
         'representante' =>$faker->firstName,
         'nivel_educativo' =>$faker->randomElement($array = array ('bachiller','universitario')),

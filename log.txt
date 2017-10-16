@@ -1,0 +1,4 @@
+* [1;34m7e7597b[m - [1;32m(10 days ago)[m [37msome other fixes from list[m [2;37m- antonio marcano[m[1;33m (HEAD -> master, origin/master)[m
+* [1;34m2a51e72[m - [1;32m(11 days ago)[m [37msome fixes, read the list[m [2;37m- antonio marcano[m[1;33m[m
+* [1;34m0a8c6c4[m - [1;32m(12 days ago)[m [37mbf8d9947371bcc8be205b70cfc02f02485fb4ce5[m [2;37m- kidcobain[m[1;33m[m
+* [1;34mbf8d994[m - [1;32m(12 days ago)[m [37mprimer commit[m [2;37m- kidcobain[m[1;33m[m

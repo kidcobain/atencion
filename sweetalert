@@ -12,6 +12,7 @@ $('button#delete').on('click', function(){
   });
 })
 
+//$(this).find('a').trigger('click');
 
 //http://itsolutionstuff.com/post/laravel-5-implement-flash-messages-with-exampleexample.html
 //https://scotch.io/tutorials/simple-laravel-crud-with-resource-controllers

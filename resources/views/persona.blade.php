@@ -7,7 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     {{$persona->nombre.' '.$persona->apellido}}
-                    <a href="/persona/{{$persona->cedula}}/editar">
+                    <a href="/persona/{{$persona->cedula}}/edicion">
                       ->Editar
                     </a>
                 </div>

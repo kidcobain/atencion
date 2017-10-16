@@ -18,6 +18,14 @@ class PersonaController extends Controller
             'persona' => $persona,
         ]);
     }
+    public function edicion($cedula)
+    {
+        $persona = $this->findByCedula($cedula);
+
+        return view('edicionpersona', [
+            'persona' => $persona,
+        ]);
+    }
 
     public function eliminar($cedula)
     {

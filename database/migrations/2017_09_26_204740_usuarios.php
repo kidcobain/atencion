@@ -26,7 +26,7 @@ class Usuarios extends Migration
             $table->softDeletes();  //deleted_at
 
             $table->string('funcionario_Cedula');
-            $table->foreign('funcionario_Cedula')->references('cedula')->on('funcionarios')->onDelete('cascade')->onUpdate('cascade');;
+            $table->foreign('funcionario_Cedula')->references('cedula')->on('funcionarios')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

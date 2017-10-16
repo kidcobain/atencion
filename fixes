@@ -35,10 +35,12 @@ v	select en persona natural o juridica
 
 	campo rif y representante solo para persona juridica
 
-	select nivel educativo : primaria, secundaria, bachiderato, tsu, universitario
+v	select nivel educativo : primaria, secundaria, bachiderato, tsu, universitario
 
 
-	select para municipio
+v	select para municipio
+
+	select encadenado de parroquia con municipio
 
 v	campos organizacion y email no obligatorios
 
@@ -63,5 +65,7 @@ http://itsolutionstuff.com/post/how-to-use-sweetalert-message-box-in-laravel-5ex
 http://itsolutionstuff.com/post/laravel-55-crud-example-from-scratchexample.html
 
 http://itsolutionstuff.com/post/how-to-create-middleware-with-parameters-in-laravel-5example.html
+
+git config --global alias.superlog "log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
 
 	

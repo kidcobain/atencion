@@ -55,7 +55,7 @@
                             <label for="observaciones" class="col-md-4 control-label">observaciones</label>
 
                             <div class="col-md-6">
-                                <input id="observaciones" type="text" class="form-control" name="observaciones" value="{{ $observaciones->observaciones or old('observaciones') }}" required autofocus>
+                                <input id="observaciones" type="text" class="form-control" name="observaciones" value="{{ $solicitudes->observaciones or old('observaciones') }}" required autofocus>
 
                                 @if ($errors->has('observaciones'))
                                     <span class="help-block">

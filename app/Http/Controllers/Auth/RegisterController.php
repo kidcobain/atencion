@@ -108,6 +108,7 @@ class RegisterController extends Controller
             'cargo' => $data['cargo'],
             'departamento' => $data['departamento'],
         ]);
+         Session()->flash('exito', 'Usuario registrado correctamente, por favor inicie sesion.');
          return User::create([
             'usuario' => $data['usuario'],
             'funcionario_Cedula' => $data['cedula'],
