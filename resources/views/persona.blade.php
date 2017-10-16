@@ -2,10 +2,11 @@
 
 @section('content')
 <div class="container">
+        <!-- Modal -->
+        <!-- 
     <form id="frmEliminarUsuario" action="" method="POST">
         <input type="hidden" id="idusuario" name="idusuario" value="">
         <input type="hidden" id="opcion" name="opcion" value="eliminar">
-        <!-- Modal -->
         <div class="modal fade" id="modalEliminar" tabindex="-1" role="dialog" aria-labelledby="modalEliminarLabel">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -23,8 +24,30 @@
                 </div>
             </div>
         </div>
-        <!-- Modal -->
     </form>
+ -->
+        <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Confirmar</h4>
+                </div>
+            
+                <div class="modal-body">
+                    <p>¿Está seguro que desea eliminar el registro?</p>
+                </div>
+                
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                    <a class="btn btn-danger btn-ok">Eliminar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+        <!-- Modal -->
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
@@ -163,7 +186,13 @@
                         </td>
                       <td>
                         <a href="/solicitud/{{$solicitud->id}}/edicion" class="button tiny radius secondary">MODIFICAR</a>
-                        <a href="/solicitud/{{$solicitud->id}}/eliminar" class="button tiny radius alert" data-toggle='modal' data-target='#modalEliminar'>ELIMINAR</a>
+                        <!-- <a href="/solicitud/{{$solicitud->id}}/eliminar" class="button tiny radius alert" data-toggle='modal' data-target='#modalEliminar'>ELIMINAR</a> 
+                        <a href="#" data-href="/solicitud/{{$solicitud->id}}/eliminar" data-toggle="modal" data-target="#confirm-delete">Delete record #23</a><br>
+                        -->
+                            
+                            <button class="btn btn-danger" data-href="/solicitud/{{$solicitud->id}}/eliminar" data-toggle="modal" data-target="#confirm-delete">
+                                Eliminar
+                            </button>
                       </td>
                     </tr>
                     @endforeach
@@ -174,4 +203,14 @@
         </div>
     </div>
 </div>
+<script src="/js/jquery-2.1.4.js" type="text/javascript"></script>
+<script>
+    $(document).ready(function() {
+        $('#confirm-delete').on('show.bs.modal', function(e) {
+        $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
+                
+        $('.debug-url').html('Delete URL: <strong>' + $(this).find('.btn-ok').attr('href') + '</strong>');
+            });
+    });
+</script>
 @endsection

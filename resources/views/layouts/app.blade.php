@@ -79,6 +79,9 @@
     </div>
 
     <!-- Scripts -->
+
+    <!-- <script src="/js/jquery-2.1.4.js" type="text/javascript"></script>
+     -->
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>
