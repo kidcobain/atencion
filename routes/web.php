@@ -27,6 +27,11 @@ Route::group(['middleware' => 'auth'], function () {
 	    return view('personas', compact('persona'));
 	});
 
+	Route::get('/funcionarios', function () {
+		$usuarios = App\User::get();
+	    return view('funcionarios', compact('usuarios'));
+	});
+
 	
 	Route::get('/registrarpersona', function () {
 	    return view('registrarpersona');

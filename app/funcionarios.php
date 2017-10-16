@@ -11,7 +11,9 @@ class funcionarios extends Model
     public function usuarios()
     {
         //return $this->hasOne(usuarios::class, 'Cedula', 'funcionario_Cedula');
-        return $this->hasOne(usuarios::class, 'usuario', 'funcionario_Cedula');
+        //return $this->hasOne(User::class, 'usuario', 'funcionario_Cedula');
+        //return $this->hasOne(User::class, 'cedula', 'funcionario_Cedula');
+        return $this->hasOne(User::class, 'funcionario_Cedula', 'cedula');
         //return $this->hasOne(usuarios::class, 'funcionario_Cedula', 'usuario');
         //return $this->hasOne(usuarios::class, 'funcionario_Cedula');
     }
