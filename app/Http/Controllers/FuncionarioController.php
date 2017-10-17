@@ -19,19 +19,52 @@ class FuncionarioController extends Controller
     }
     public function edicion($cedula)
     {
-        $persona = $this->findByCedula($cedula);
+        $funcionario = $this->findByCedula($cedula);
 
-        return view('edicionpersona', [
-            'persona' => $persona,
+        return view('edicionfuncionario', [
+            'funcionario' => $funcionario,
         ]);
     }
+
+    public function editar(Request $request)
+    {
+        //$funcionario = funcionarios::where('cedula', $request->cedula)->first();
+        $funcionario = funcionarios::find($request->cedula);
+        //dd($funcionario);
+        
+        $funcionario->cedula       = $request->cedula;
+        $funcionario->nombre       = $request->nombre;
+        $funcionario->apellido     = $request->apellido;
+        $funcionario->sexo         = $request->sexo;
+        $funcionario->direccion    = $request->direccion;
+        $funcionario->cargo        = $request->cargo;
+        $funcionario->departamento = $request->departamento;
+        $funcionario->telefono     = $request->telefono;
+        $funcionario->email        = $request->email;
+        $funcionario->save();
+        
+        /*
+        $funcionario->update([
+        $funcionario->cedula       => $request->cedula,
+        $funcionario->nombre       => $request->nombre,
+        $funcionario->apellido     => $request->apellido,
+        $funcionario->sexo         => $request->sexo,
+        $funcionario->direccion    => $request->direccion,
+        $funcionario->cargo        => $request->cargo,
+        $funcionario->departamento => $request->departamento,
+        $funcionario->telefono     => $request->telefono,
+        $funcionario->email        => $request->email,
+        ]);
+        */
+        return redirect('/funcionario/'.$request->cedula);
+    } 
 
     public function eliminar($cedula)
     {
         //
         //personas::destroy( $cedula );
         //$this->findByCedula($cedula)->delete();
-        personas::where('cedula', $cedula)->delete();
+        funcionarios::where('cedula', $cedula)->delete();
         return redirect()->back();
     }
 

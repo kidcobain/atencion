@@ -77,6 +77,12 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/persona/{cedula}', 'PersonaController@show');
 
 	Route::get('/funcionario/{cedula}', 'FuncionarioController@show');
+
+	Route::get('/funcionario/{cedula}/eliminar','FuncionarioController@eliminar');
+
+	Route::get('/funcionario/{cedula}/edicion', 'FuncionarioController@edicion'); //falta
+
+	Route::post('/funcionario/{cedula}/editar', 'FuncionarioController@editar'); //falta
 });
 
 

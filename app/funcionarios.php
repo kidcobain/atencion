@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class funcionarios extends Model
 {
     //
+
+    protected $primaryKey = 'cedula';
     
     public function usuarios()
     {
@@ -24,7 +26,17 @@ class funcionarios extends Model
     }
 
     protected $fillable = [
-        'cedula', 'email', 'nombre', 'apellido', 'sexo', 'telefono', 'direccion', 'cargo', 'departamento',
+        'cedula',
+        'email',
+        'nombre', 
+        'apellido', 
+        'sexo', 
+        'telefono', 
+        'direccion', 
+        'cargo', 
+        'departamento',
     ];
+
+
     
 }
