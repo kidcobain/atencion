@@ -31,36 +31,36 @@
             </tr>
           </thead>
           <tbody>
-            @foreach( $funcionarios as $funcionario )
+            @foreach( $usuarios as $usuario )
 
               
             <tr>
               <td>
-                <a href="/persona/{{$funcionario->cedula}}">
-                  {{$funcionario->cedula}}
+                <a href="/persona/{{$usuario->funcionario->cedula}}">
+                  {{$usuario->funcionario->cedula}}
                 </a>
                 
               </td>
-              <td>{{$funcionario->nombre}}</td>
-              <td>{{$funcionario->apellido}}</td>
-              <td>{{($funcionario->sexo == 'm')? 'Masculino':'Femenino'}}</td>
-              <td>{{$funcionario->direccion}}</td>
-              <td>{{$funcionario->telefono}}</td>
-              <td>{{$funcionario->email}}</td>
-              <td>{{$funcionario->cargo}}</td>
-              <td>{{$funcionario->departamento}}</td>
-              <td>{{$funcionario->usuarios->usuario}}</td>
+              <td>{{$usuario->funcionario->nombre}}</td>
+              <td>{{$usuario->funcionario->apellido}}</td>
+              <td>{{($usuario->funcionario->sexo == 'm')? 'Masculino':'Femenino'}}</td>
+              <td>{{$usuario->funcionario->direccion}}</td>
+              <td>{{$usuario->funcionario->telefono}}</td>
+              <td>{{$usuario->funcionario->email}}</td>
+              <td>{{$usuario->funcionario->cargo}}</td>
+              <td>{{$usuario->funcionario->departamento}}</td>
+              <td>{{$usuario->usuario}}</td>
               <td>
-                <a href="/funcionario/{{$funcionario->cedula}}/editar" class="button tiny radius secondary">MODIFICAR</a>
-                <a href="/funcionario/{{$funcionario->cedula}}/eliminar" class="button tiny radius alert">ELIMINAR</a>
+                <a href="#" class="button tiny radius secondary">MODIFICAR</a>
+                <a href="/persona/{{$usuario->cedula}}/eliminar" class="button tiny radius alert">ELIMINAR</a>
               </td>
             </tr>
             @endforeach
           </tbody>
       </table>
-      @if(count($funcionarios)>=10)
+      @if(count($usuario)>10)
 
-        {{$funcionarios->links() }}
+        {{--$usuario->links() --}}
 
       @endif
 

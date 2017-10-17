@@ -11,7 +11,12 @@
     <title>{{ config('app.name') }}</title>
 
     <!-- Styles -->
+
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- 
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+
+     -->
 </head>
 <body>
     <div id="app">
@@ -81,6 +86,8 @@
     <!-- Scripts -->
 
     <!-- <script src="/js/jquery-2.1.4.js" type="text/javascript"></script>
+    <script src="{{ asset('js/jquery-2.1.4.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
      -->
     <script src="{{ asset('js/app.js') }}"></script>
 </body>

@@ -26,13 +26,22 @@ Route::group(['middleware' => 'auth'], function () {
 		$persona = App\personas::paginate(15);
 	    return view('personas', compact('persona'));
 	});
+	Route::get('/solicitudes', function () {
+		$solicitudes = App\solicitudes::paginate(15);
+	    return view('solicitudes', compact('solicitudes'));
+	});
 
+/*
 	Route::get('/funcionarios', function () {
 		$usuarios = App\User::get();
 	    return view('funcionarios', compact('usuarios'));
 	});
+*/
+	Route::get('/funcionarios', function () {
+		$funcionarios = App\funcionarios::paginate(10);
+	    return view('funcionarios', compact('funcionarios'));
+	});
 
-	
 	Route::get('/registrarpersona', function () {
 	    return view('registrarpersona');
 	});
