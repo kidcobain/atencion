@@ -36,7 +36,7 @@
               
             <tr>
               <td>
-                <a href="/persona/{{$funcionario->cedula}}">
+                <a href="/funcionario/{{$funcionario->cedula}}">
                   {{$funcionario->cedula}}
                 </a>
                 

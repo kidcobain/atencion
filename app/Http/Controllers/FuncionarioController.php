@@ -6,7 +6,7 @@ namespace App\Http\Controllers;
 use App\funcionarios;
 use Illuminate\Http\Request;
 
-class PersonaController extends Controller
+class FuncionarioController extends Controller
 {
     
     public function show($cedula)
@@ -49,14 +49,14 @@ class PersonaController extends Controller
 
     protected function buscarPorCedula($cedula)
     {
-        return personas::where("cedula", "LIKE", "\\" . $cedula . "%")->get();
-        //return personas::where('cedula', $cedula)->firstOrFail();
+        return funcionarios::where("cedula", "LIKE", "\\" . $cedula . "%")->get();
+        //return funcionarios::where('cedula', $cedula)->firstOrFail();
     }
 
     protected function findByCedula($cedula)
     {
-        return personas::where('cedula', $cedula)->firstOrFail();
-        //return personas::where('cedula', $cedula)->firstOrFail();
+        return funcionarios::where('cedula', $cedula)->firstOrFail();
+        //return funcionarios::where('cedula', $cedula)->firstOrFail();
     }
 
     public function store(Request $request)

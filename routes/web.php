@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('auth/login');
+    return view('/login');
 });
 
 
@@ -27,7 +27,7 @@ Route::group(['middleware' => 'auth'], function () {
 	    return view('personas', compact('persona'));
 	});
 	Route::get('/solicitudes', function () {
-		$solicitudes = App\solicitudes::paginate(15);
+		$solicitudes = App\solicitudes::orderBy('fecha','desc')->paginate(15);
 	    return view('solicitudes', compact('solicitudes'));
 	});
 
@@ -75,6 +75,8 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/home', 'HomeController@index')->name('home');
 
 	Route::get('/persona/{cedula}', 'PersonaController@show');
+
+	Route::get('/funcionario/{cedula}', 'FuncionarioController@show');
 });
 
 

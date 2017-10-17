@@ -21,6 +21,7 @@ class Solicitudes extends Migration
             $table->string('solicitud');
             $table->string('observaciones');
             $table->string('fundo');
+            $table->date('fecha');
             $table->timestamps();
             $table->softDeletes();  //deleted_at
 

@@ -18,6 +18,11 @@ class funcionarios extends Model
         //return $this->hasOne(usuarios::class, 'funcionario_Cedula');
     }
 
+    public function solicitudes()
+    {
+        return $this->hasMany(solicitudes::class, 'funcionario_Cedula', 'cedula');
+    }
+
     protected $fillable = [
         'cedula', 'email', 'nombre', 'apellido', 'sexo', 'telefono', 'direccion', 'cargo', 'departamento',
     ];

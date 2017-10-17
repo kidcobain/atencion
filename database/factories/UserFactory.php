@@ -103,6 +103,7 @@ $factory->define(App\solicitudes::class, function (Faker $faker) {
         'observaciones' => $faker->sentence(6, true),
         'fundo' => $faker->name,
 
+        'fecha' => $faker->dateTimeThisDecade->format('Y-m-d'),
         'created_at' => $faker->dateTimeThisDecade,
         'updated_at' => $faker->dateTimeThisDecade,
     ];

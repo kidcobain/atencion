@@ -35,11 +35,14 @@
                   <!-- <table width="100%"> -->
                   <thead>
                     <tr>
+                      <th>Cedula solicitante</th>
+                      <th>Nombre solicitante</th>
                       <th>Lugar</th>
                       <th>Tipo</th>
                       <th>Solicitud</th>
                       <th>Observaciones</th>
                       <th>Fundo</th>
+                      <th>Fecha</th>
                       <th>Funcionario</th>
                       <th></th>
                     </tr>
@@ -47,11 +50,18 @@
                   <tbody>
                     @foreach( $solicitudes as $solicitud )
                     <tr>
+                      <td>
+                        <a href="/persona/{{$solicitud->persona->cedula}}">
+                        {{$solicitud->persona->cedula}}
+                            </a>
+                      </td>
+                      <td>{{$solicitud->persona->nombre.' '.$solicitud->persona->apellido}}</td>
                       <td>{{$solicitud->lugar}}</td>
                       <td>{{$solicitud->tipo}}</td>
                       <td>{{$solicitud->solicitud}}</td>
                       <td>{{$solicitud->observaciones}}</td>
                       <td>{{$solicitud->fundo}}</td>
+                      <td>{{ \Carbon\Carbon::createFromFormat('Y-m-d', $solicitud->fecha)->format('d/m/Y') }}</td>
                       <td>
                             <a href="/funcionario/{{$solicitud->funcionario->cedula}}">
                                 {{$solicitud->funcionario->nombre.' '.$solicitud->funcionario->apellido}}
