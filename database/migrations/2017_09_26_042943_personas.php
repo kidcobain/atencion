@@ -15,8 +15,9 @@ class Personas extends Migration
     {
         //
         Schema::create('personas', function (Blueprint $table) {
-            $table->string('cedula');
-            $table->primary('cedula');
+            $table->increments('id');
+            $table->string('cedula')->unique();
+            //$table->primary('cedula')->index();;
             $table->string('nombre');
             $table->string('apellido');
             $table->enum('sexo', ['f', 'm']);

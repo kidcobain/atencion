@@ -26,6 +26,7 @@
         </div>
     </form>
  -->
+ <!--
         <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -46,7 +47,8 @@
             </div>
         </div>
     </div>
-        
+-->
+        @include('partials.modalb')
         <!-- Modal -->
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -203,14 +205,5 @@
         </div>
     </div>
 </div>
-<script src="/js/jquery-2.1.4.js" type="text/javascript"></script>
-<script>
-    $(document).ready(function() {
-        $('#confirm-delete').on('show.bs.modal', function(e) {
-        $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
-                
-        $('.debug-url').html('Delete URL: <strong>' + $(this).find('.btn-ok').attr('href') + '</strong>');
-            });
-    });
-</script>
+
 @endsection

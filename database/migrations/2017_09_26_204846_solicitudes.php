@@ -27,8 +27,8 @@ class Solicitudes extends Migration
 
             $table->string('persona_Cedula');
             $table->string('funcionario_Cedula');
-            $table->foreign('persona_Cedula')->references('cedula')->on('personas')->onDelete('cascade')->onDelete('cascade');
-            $table->foreign('funcionario_Cedula')->references('cedula')->on('funcionarios')->onDelete('cascade')->onDelete('cascade');
+            $table->foreign('persona_Cedula')->references('cedula')->on('personas')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('funcionario_Cedula')->references('cedula')->on('funcionarios')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

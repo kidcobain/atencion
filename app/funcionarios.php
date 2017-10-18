@@ -8,7 +8,7 @@ class funcionarios extends Model
 {
     //
 
-    protected $primaryKey = 'cedula';
+    //protected $primaryKey = 'cedula';
     
     public function usuarios()
     {
@@ -26,6 +26,7 @@ class funcionarios extends Model
     }
 
     protected $fillable = [
+        'id',
         'cedula',
         'email',
         'nombre', 

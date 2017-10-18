@@ -13,6 +13,21 @@ class personas extends Model
     }
 
     protected $fillable = [
-        'cedula', 'email', 'nombre', 'apellido', 'sexo', 'telefono', 'tipo', 'rif', 'representante', 'nivel_educativo', 'municipio', 'parroquia', 'sector', 'direccion', 'unidad_produccion', 'organizacion', 
+        'cedula', 
+        'email', 
+        'nombre', 
+        'apellido', 
+        'sexo', 
+        'telefono', 
+        'tipo', 
+        'rif', 
+        'representante', 
+        'nivel_educativo', 
+        'municipio', 
+        'parroquia', 
+        'sector', 
+        'direccion', 
+        'unidad_produccion', 
+        'organizacion', 
     ];
  }

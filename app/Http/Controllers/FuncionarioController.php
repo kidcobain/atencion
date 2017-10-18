@@ -26,11 +26,13 @@ class FuncionarioController extends Controller
         ]);
     }
 
-    public function editar(Request $request)
+    public function editar(Request $request, $cedula)
     {
-        //$funcionario = funcionarios::where('cedula', $request->cedula)->first();
-        $funcionario = funcionarios::find($request->cedula);
+        //$funcionario = funcionarios::where('cedula', $cedula)->first();
+        //$funcionario = funcionarios::find($cedula);
+        $funcionario = $this->findByCedula($cedula);
         //dd($funcionario);
+
         
         $funcionario->cedula       = $request->cedula;
         $funcionario->nombre       = $request->nombre;

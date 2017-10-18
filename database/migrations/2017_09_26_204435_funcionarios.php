@@ -15,8 +15,9 @@ class Funcionarios extends Migration
     {
         //
         Schema::create('funcionarios', function (Blueprint $table) {
-            $table->string('cedula');
-            $table->primary('cedula');
+            $table->increments('id');
+            $table->string('cedula')->unique();
+            //$table->primary('cedula');
             $table->string('email')->unique();
             $table->string('nombre');
             $table->string('apellido');

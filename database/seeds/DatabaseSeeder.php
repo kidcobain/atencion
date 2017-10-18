@@ -12,15 +12,15 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // $this->call(UsersTableSeeder::class);
-
         //'user_id' => App\User::all()->random()->id,
         //'created_at' => $faker->dateTimeBetween('-3 years', 'now'),
 
         $func = factory(App\funcionarios::class, 20)->create();
+        //$this->command->info('info '.$func->first());
 
         $func->each(function(App\funcionarios $funcionarios) use ($func) {
             $usuarios = factory(App\usuarios::class)
-            	
+
                 ->create([
                     'funcionario_Cedula' => $funcionarios->cedula,
                 ]);

@@ -12,7 +12,7 @@
   <div class="row">
     <div class="panel panel-default">
       
-
+      @include('partials.modalb')
       <div class="panel-body">
         <table width="100%" class="table table-bordered table-striped table-responsive">
           <thead>
@@ -61,8 +61,11 @@
               <td>{{$personaa->telefono}}</td>
               <td>{{$personaa->email}}</td>
               <td>
-                <a href="#" class="button tiny radius secondary">MODIFICAR</a>
-                <a href="/persona/{{$personaa->cedula}}/eliminar" class="button tiny radius alert">ELIMINAR</a>
+                <a href="/persona/{{$personaa->cedula}}/edicion" class="button tiny radius secondary">MODIFICAR</a>
+                
+                <button class="btn btn-danger" data-href="/persona/{{$personaa->cedula}}/eliminar" data-toggle="modal" data-target="#confirm-delete">
+                                Eliminar
+                            </button>
               </td>
             </tr>
             @endforeach
@@ -78,4 +81,13 @@
   </div>
 </div>
 </div>
+<script>
+    $(document).ready(function() {
+        $('#confirm-delete').on('show.bs.modal', function(e) {
+        $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
+                
+        $('.debug-url').html('Delete URL: <strong>' + $(this).find('.btn-ok').attr('href') + '</strong>');
+            });
+    });
+</script>
 @endsection

@@ -11,7 +11,7 @@
   </div>
   <div class="row">
     <div class="panel panel-default">
-      
+      @include('partials.modalb')
       
       <div class="panel-body">
         <table width="100%" class="table table-bordered table-striped table-responsive">
@@ -52,7 +52,9 @@
               <td>{{$funcionario->usuarios->usuario}}</td>
               <td>
                 <a href="/funcionario/{{$funcionario->cedula}}/editar" class="button tiny radius secondary">MODIFICAR</a>
-                <a href="/funcionario/{{$funcionario->cedula}}/eliminar" class="button tiny radius alert">ELIMINAR</a>
+                <button class="btn btn-danger" data-href="/funcionario/{{$funcionario->cedula}}/eliminar" data-toggle="modal" data-target="#confirm-delete">
+                Eliminar
+                </button>
               </td>
             </tr>
             @endforeach
