@@ -51,7 +51,7 @@
               <td>{{$funcionario->departamento}}</td>
               <td>{{$funcionario->usuarios->usuario}}</td>
               <td>
-                <a href="/funcionario/{{$funcionario->cedula}}/editar" class="button tiny radius secondary">MODIFICAR</a>
+                <a href="/funcionario/{{$funcionario->cedula}}/edicion" class="button tiny radius secondary">MODIFICAR</a>
                 <button class="btn btn-danger" data-href="/funcionario/{{$funcionario->cedula}}/eliminar" data-toggle="modal" data-target="#confirm-delete">
                 Eliminar
                 </button>
