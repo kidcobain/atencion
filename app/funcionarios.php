@@ -36,6 +36,7 @@ class funcionarios extends Model
         'direccion', 
         'cargo', 
         'departamento',
+        'password',
     ];
 
 

@@ -3,11 +3,7 @@
 @section('content')
 <div class="container">
 
-        @if (session('exito'))
-        <div class="alert alert-success col-sm-offset-2 col-sm-8 mensaje">
-            {{ Session::get('exito') }}
-        </div>
-    @endif
+        
         <!-- Modal -->
         @include('partials.modalb')
                 

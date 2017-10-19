@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+    
         <!-- Modal -->
         <!-- 
     <form id="frmEliminarUsuario" action="" method="POST">

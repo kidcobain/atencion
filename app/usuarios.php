@@ -15,9 +15,10 @@ class usuarios extends Model
         //return $this->belongsTo(funcionarios::class, 'cedula', 'funcionarios_Cedula');
         return $this->belongsTo(funcionarios::class, 'funcionario_Cedula', 'cedula');
     }
+    protected $fillable = [
+        'usuario',
+        'password',
+        'funcionario_Cedula',
+    ];
 
 }
-
-
-
-			 

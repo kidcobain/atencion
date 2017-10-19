@@ -43,8 +43,14 @@ class FuncionarioController extends Controller
         $funcionario->departamento = $request->departamento;
         $funcionario->telefono     = $request->telefono;
         $funcionario->email        = $request->email;
-        $funcionario->save();
+
+        if ($request->password and $request->password != ''){
+            $funcionario->usuarios->password = bcrypt($request->password);
+            $funcionario->usuarios->save();
+        }
         
+        $funcionario->save();
+
         /*
         $funcionario->update([
         $funcionario->cedula       => $request->cedula,
@@ -58,6 +64,7 @@ class FuncionarioController extends Controller
         $funcionario->email        => $request->email,
         ]);
         */
+        Session()->flash('exito', 'Se han actualizado los datos del usuario satisfactoriamente.');
         return redirect('/funcionario/'.$request->cedula);
     } 
 

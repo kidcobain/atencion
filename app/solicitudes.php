@@ -14,7 +14,13 @@ class solicitudes extends Model
     }
 
     protected $fillable = [
-        'lugar', 'tipo', 'solicitud', 'observaciones', 'fundo', 'persona_Cedula', 'funcionario_Cedula', ];
+        'lugar',
+        'tipo',
+        'solicitud',
+        'observaciones',
+        'fundo',
+        'persona_Cedula',
+        'funcionario_Cedula', ];
 
     public function funcionario()
     {

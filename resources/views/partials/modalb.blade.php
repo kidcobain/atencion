@@ -1,3 +1,9 @@
+@if (session('exito'))
+        <div class="alert alert-success col-sm-offset-2 col-sm-8 mensaje">
+            {{ Session::get('exito') }}
+        </div>
+@endif
+
 <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
