@@ -19,8 +19,11 @@ class solicitudes extends Model
         'solicitud',
         'observaciones',
         'fundo',
+        'fecha',
         'persona_Cedula',
-        'funcionario_Cedula', ];
+        'funcionario_Cedula',
+
+    ];
 
     public function funcionario()
     {

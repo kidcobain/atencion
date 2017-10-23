@@ -12,23 +12,26 @@ class SolicitudController extends Controller
     {
         //
         solicitudes::destroy( $id );
-        return redirect()->back();
+        return redirect()->back()->withSuccess('Se han eliminado los datos del usuario satisfactoriamente');
     }
 
     public function editar(Request $request, $id)
     {
     	$solicitud = solicitudes::find($id);
 
-    	$solicitud->lugar = $request->lugar;
-    	$solicitud->tipo = $request->tipo;
-    	$solicitud->solicitud = $request->solicitud;
-    	$solicitud->observaciones = $request->observaciones;
-    	$solicitud->fundo = $request->fundo;
-    	$solicitud->persona_Cedula = $request->persona_Cedula;
-    	$solicitud->funcionario_Cedula = $request->funcionario_Cedula;
+        $request->fecha = \Carbon\Carbon::createFromFormat('d/m/Y', $request->fecha);
+
+        $solicitud->lugar              = $request->lugar;
+        $solicitud->tipo               = $request->tipo;
+        $solicitud->solicitud          = $request->solicitud;
+        $solicitud->observaciones      = $request->observaciones;
+        $solicitud->fundo              = $request->fundo;
+        $solicitud->fecha              = $request->fecha;
+        $solicitud->persona_Cedula     = $request->persona_Cedula;
+        $solicitud->funcionario_Cedula = $request->funcionario_Cedula;
 
     	$solicitud->save();
-    	return redirect('/persona/'.$request->persona_Cedula);
+    	return redirect('/persona/'.$request->persona_Cedula)->withSuccess('Se han actualizado los datos del usuario satisfactoriamente');
     }
     public function edicion($id)
     {
@@ -45,30 +48,32 @@ class SolicitudController extends Controller
     {
         //dd($request);
         //dd($request->cedula);
-        
         $request->validate([
-            'lugar' => 'required|string|max:50|min:5',
-            'tipo' => 'required|string|max:255',
-            'solicitud' => 'required|string|max:255',
-            'observaciones' => 'required|string|max:255',
-            'fundo' => 'required|string|max:255',
-            'persona_Cedula' => 'required|string|max:255',
-            'funcionario_Cedula' => 'string|max:255',
+            'lugar'              => 'required|string|max:50|min:5',
+            'tipo'               => 'required|string|max:255',
+            'solicitud'          => 'required|string|max:255',
+            'observaciones'      => 'required|string|max:255',
+            'fundo'              => 'required|string|max:255',
+            'fecha'              => 'required|date_format:"d/m/Y"',
+            'persona_Cedula'     => 'required|string|max:255|exists:personas,cedula',
+            'funcionario_Cedula' => 'string|max:255|exists:funcionarios,cedula',
             
         ]);
         
+        $request->fecha = \Carbon\Carbon::createFromFormat('d/m/Y', $request->fecha);
          solicitudes::create([
-            'lugar' => $request->lugar,
-            'tipo' => $request->tipo,
-            'solicitud' => $request->solicitud,
-            'observaciones' => $request->observaciones,
-            'fundo' => $request->fundo,
-            'persona_Cedula' => $request->persona_Cedula,
+            'lugar'              => $request->lugar,
+            'tipo'               => $request->tipo,
+            'solicitud'          => $request->solicitud,
+            'observaciones'      => $request->observaciones,
+            'fundo'              => $request->fundo,
+            'fecha'              => $request->fecha,
+            'persona_Cedula'     => $request->persona_Cedula,
             'funcionario_Cedula' => $request->funcionario_Cedula,
             
 
         ]);
-         return redirect('/persona/'.$request->persona_Cedula);
+         return redirect('/persona/'.$request->persona_Cedula)->withSuccess('Se han guardado los datos del usuario satisfactoriamente');
     }
 
     

@@ -1,6 +1,6 @@
-@if (session('exito'))
+@if (session('success'))
         <div class="alert alert-success col-sm-offset-2 col-sm-8 mensaje">
-            {{ Session::get('exito') }}
+            {{ session('success') }}
         </div>
 @endif
 

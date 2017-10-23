@@ -76,6 +76,19 @@
                                 @endif
                             </div>
                         </div>
+                        <div class="form-group{{ $errors->has('fecha') ? ' has-error' : '' }}">
+                            <label for="fecha" class="col-md-4 control-label">* fecha</label>
+
+                            <div class="col-md-6">
+                                <input id="fecha" type="text" class="form-control" name="fecha" value="{{ old('fecha') }}" required autofocus>
+
+                                @if ($errors->has('fecha'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('fecha') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
                         <div class="form-group{{ $errors->has('cedula') ? ' has-error' : '' }}">
                             <label for="cedula" class="col-md-4 control-label">* Cedula</label>
 

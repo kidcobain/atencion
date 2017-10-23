@@ -76,6 +76,19 @@
                                 @endif
                             </div>
                         </div>
+                        <div class="form-group{{ $errors->has('fecha') ? ' has-error' : '' }}">
+                            <label for="fecha" class="col-md-4 control-label">* fecha</label>
+
+                            <div class="col-md-6">
+                                <input id="fecha" type="text" class="form-control" name="fecha" value="{{ (\Carbon\Carbon::now()->format('d/m/Y'))  }}" required autofocus>
+
+                                @if ($errors->has('fecha'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('fecha') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
                         <div class="form-group{{ $errors->has('persona_Cedula') ? ' has-error' : '' }}">
                             <label for="persona_Cedula" class="col-md-4 control-label">* Persona Cedula</label>
 

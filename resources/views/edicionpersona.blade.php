@@ -8,7 +8,7 @@
                 <div class="panel-heading">Registrar solicitud</div>
 
                 <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="/persona/registrar">
+                    <form class="form-horizontal" method="POST" action="/persona/{{$persona->cedula}}/editar">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('cedula') ? ' has-error' : '' }}">
@@ -165,17 +165,28 @@
                             <div class="col-md-6">
                                 <select class="form-control" id="municipio" class="form-control" name="municipio" value="{{ $persona->municipio or old('municipio') }}" required autofocus>
                                   <option value="">seleccione una opcion</option>
-                                  <option value="caroni"> Caroní </option>
-                                  <option value="cedeno"> Cedeño </option>
-                                  <option value="callao"> El Callao </option>
-                                  <option value="gran sabana"> Gran Sabana </option>
-                                  <option value="heres"> Heres </option>
-                                  <option value="padrepedrochien"> Padre Pedro Chien </option>
-                                  <option value="piar"> Piar </option>
-                                  <option value="angostura"> Angostura (Raúl Leoni) </option>
-                                  <option value="roscio"> Roscio </option>
-                                  <option value="sifontes"> Sifontes </option>
-                                  <option value="sucre"> Sucre </option>
+                                  <option value="Caroní" {{ old('municipio', $persona->municipio) == "Caroní" ? 'selected' : '' }}> Caroní </option>
+
+                                  <option value="Cedeño"{{ old('municipio', $persona->municipio) == "Cedeño" ? 'selected' : '' }}> Cedeño </option>
+
+                                  <option value="El Callao"{{ old('municipio', $persona->municipio) == "El Callao" ? 'selected' : '' }}> El Callao </option>
+
+                                  <option value="Gran Sabana"{{ old('municipio', $persona->municipio) == "Gran Sabana" ? 'selected' : '' }}> Gran Sabana </option>
+
+                                  <option value="Heres"{{ old('municipio', $persona->municipio) == "Heres" ? 'selected' : '' }}> Heres </option>
+
+                                  <option value="Padre Pedro Chien"{{ old('municipio', $persona->municipio) == "Padre Pedro Chien" ? 'selected' : '' }}> Padre Pedro Chien </option>
+
+                                  <option value="Piar"{{ old('municipio', $persona->municipio) == "Piar" ? 'selected' : '' }}> Piar </option>
+
+                                  <option value="Angostura (Raúl Leoni)"{{ old('municipio', $persona->municipio) == "Angostura (Raúl Leoni)" ? 'selected' : '' }}> Angostura (Raúl Leoni) </option>
+
+                                  <option value="Roscio"{{ old('municipio', $persona->municipio) == "Roscio" ? 'selected' : '' }}> Roscio </option>
+
+                                  <option value="Sifontes"{{ old('municipio', $persona->municipio) == "Sifontes" ? 'selected' : '' }}> Sifontes </option>
+
+                                  <option value="Sucre"{{ old('municipio', $persona->municipio) == "Sucre" ? 'selected' : '' }}> Sucre </option>
+
                                 </select>
 
                                 @if ($errors->has('municipio'))
@@ -189,8 +200,10 @@
                             <label for="parroquia" class="col-md-4 control-label">* Parroquia</label>
 
                             <div class="col-md-6">
-                                <input id="parroquia" type="text" class="form-control" name="parroquia" value="{{ $persona->parroquia or old('parroquia') }}" required autofocus>
-
+                                <select class="form-control" id="parroquia" class="form-control parroquia" name="parroquia" value="{{ $persona->parroquia or old('parroquia') }}" required autofocus>
+                                  <option value="">seleccione una opcion</option>
+                                  
+                                </select>
                                 @if ($errors->has('parroquia'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('parroquia') }}</strong>
@@ -292,4 +305,53 @@
         </div>
     </div>
 </div>
+<script src="/js/jquery-2.1.4.js" type="text/javascript"></script>
+<script>
+    $(document).ready(function() {
+        //var parroquia = $('.parroquia');
+        var oldparroquia ="{{ $persona->parroquia or old('parroquia') }}" || 0;
+        console.log($('#parroquia').val());
+        var mostrarparroquias = function(){
+            $.ajax({
+                type: 'get',
+                url: '/js/municipios.json',
+                data: {
+                },
+                
+                dataType: 'json',
+                complete: function(){ 
+                    //alert('listo');
+                },
+
+                success: function(data){
+                    var municipio = $('#municipio').val();
+                    //'+(oldparroquia === parroquia)?' selected':''+
+                    $('#parroquia').html('');
+                    var opciones = '<option value="">seleccione una opcion</option>';
+                    var parroquia ;
+
+                    for (parroquia of data[municipio]){
+                        var estado = (oldparroquia === parroquia)?' selected':'';
+                        opciones +=' <option value="'+parroquia+'"'+estado+'>'+parroquia+'</option>';
+                    }
+                    console.log(opciones);
+                    //$('.parroquia :first-child').html(opciones);
+                    $('#parroquia').append(opciones);
+                    
+                }
+
+            });
+        };
+
+        if($('#municipio').val()){
+            mostrarparroquias();
+        }
+        $('#municipio').change(mostrarparroquias);
+
+
+
+
+            
+    });
+</script>
 @endsection

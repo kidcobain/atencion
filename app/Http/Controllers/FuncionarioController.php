@@ -64,8 +64,9 @@ class FuncionarioController extends Controller
         $funcionario->email        => $request->email,
         ]);
         */
-        Session()->flash('exito', 'Se han actualizado los datos del usuario satisfactoriamente.');
-        return redirect('/funcionario/'.$request->cedula);
+        //Session()->flash('exito', 'Se han actualizado los datos del usuario satisfactoriamente.');
+        return redirect('/funcionario/'.$request->cedula)->withSuccess('Se han actualizado los datos del usuario satisfactoriamente');
+;
     } 
 
     public function eliminar($cedula)
@@ -74,7 +75,7 @@ class FuncionarioController extends Controller
         //personas::destroy( $cedula );
         //$this->findByCedula($cedula)->delete();
         funcionarios::where('cedula', $cedula)->delete();
-        return redirect()->back();
+        return redirect()->back()->withSuccess('Se han eliminado los datos del usuario satisfactoriamente');
     }
 
     public function busqueda(Request $request)
@@ -145,7 +146,7 @@ class FuncionarioController extends Controller
             
 
         ]);
-         return redirect('/persona/'.$request->cedula);
+         return redirect('/persona/'.$request->cedula)->withSuccess('Se han guardado los datos del usuario satisfactoriamente');
 
         // The blog post is valid, store in database...
     }
