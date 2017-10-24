@@ -63,6 +63,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::post('/persona/registrar', 'PersonaController@store'); 
 
 	Route::get('/persona/buscar',['uses' => 'PersonaController@busqueda','as' => 'busqueda']);
+	Route::get('/funcionario/buscar',['uses' => 'funcionarioController@busqueda','as' => 'busqueda']);
 
 	Route::get('/persona/{cedula}/eliminar','PersonaController@eliminar');
 

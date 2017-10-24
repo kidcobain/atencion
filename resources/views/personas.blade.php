@@ -4,7 +4,7 @@
 <div class="container" style="margin-left:0; width: unset;">
   <a href="/registrarpersona">Agregar persona</a>
   <div class="row">
-    <form action="/persona/buscar" method="get" accept-charset="utf-8">
+    <form action="/persona/buscar/" method="get" accept-charset="utf-8">
       Buscar persona por numero de cedula      
       <input type="text" name="cedula"> <input type="submit"  value="Buscar">
     </form>

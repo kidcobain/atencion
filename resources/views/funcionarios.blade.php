@@ -2,16 +2,18 @@
 
 @section('content')
 <div class="container" style="margin-left:0; width: unset;">
-  <a href="/registrarpersona">Agregar persona</a>
   <div class="row">
-    <form action="/persona/buscar" method="get" accept-charset="utf-8">
-      Buscar persona por numero de cedula      
+      @include('partials.modalb')
+  </div>
+  <div class="row">
+  <a href="/registrarpersona">Agregar funcionario</a>
+    <form action="/funcionario/buscar" method="get" accept-charset="utf-8">
+      Buscar funcionario por numero de cedula      
       <input type="text" name="cedula"> <input type="submit"  value="Buscar">
     </form>
   </div>
   <div class="row">
     <div class="panel panel-default">
-      @include('partials.modalb')
       
       <div class="panel-body">
         <table width="100%" class="table table-bordered table-striped table-responsive">

@@ -63,16 +63,16 @@ class PersonaController extends Controller
     public function store(Request $request)
     {
         //dd($request);
-        //dd($request->cedula);
+        //dd($request->cedula); 
         
         $request->validate([
-            'cedula'            => 'required|string|max:9|unique:personas',
+            'cedula'            => 'required|string|max:9|min:7|unique:personas',
             'nombre'            => 'required|string|max:50|min:5',
             'apellido'          => 'required|string|max:50|min:5',
             'sexo'              => 'required|string|max:1',
             'tipo'              => 'required|string|max:255',
-            'rif'               => 'required|string|max:255',
-            'representante'     => 'required|string|max:255',
+            'rif'               => 'sometimes|required|string|max:255',
+            'representante'     => 'sometimes|required|string|max:255',
             'nivel_educativo'   => 'required|string|max:255',
             'municipio'         => 'required|string|max:255',
             'parroquia'         => 'required|string|max:255',
@@ -120,7 +120,7 @@ class PersonaController extends Controller
         
 
         $request->validate([
-            'cedula'            => 'required|string|max:9|unique:personas,cedula,'.$cedula.',cedula',
+            'cedula'            => 'required|string|max:9|min:7|unique:personas,cedula,'.$cedula.',cedula',
             'nombre'            => 'required|string|max:50|min:5',
             'apellido'          => 'required|string|max:50|min:5',
             'sexo'              => 'required|string|max:1',

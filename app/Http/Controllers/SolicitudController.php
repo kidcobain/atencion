@@ -12,7 +12,7 @@ class SolicitudController extends Controller
     {
         //
         solicitudes::destroy( $id );
-        return redirect()->back()->withSuccess('Se han eliminado los datos del usuario satisfactoriamente');
+        return redirect()->back()->withSuccess('Se han eliminado los datos de la solicitud satisfactoriamente');
     }
 
     public function editar(Request $request, $id)
@@ -31,7 +31,7 @@ class SolicitudController extends Controller
         $solicitud->funcionario_Cedula = $request->funcionario_Cedula;
 
     	$solicitud->save();
-    	return redirect('/persona/'.$request->persona_Cedula)->withSuccess('Se han actualizado los datos del usuario satisfactoriamente');
+    	return redirect('/persona/'.$request->persona_Cedula)->withSuccess('Se han actualizado los datos de la solicitud satisfactoriamente');
     }
     public function edicion($id)
     {
@@ -73,7 +73,7 @@ class SolicitudController extends Controller
             
 
         ]);
-         return redirect('/persona/'.$request->persona_Cedula)->withSuccess('Se han guardado los datos del usuario satisfactoriamente');
+         return redirect('/persona/'.$request->persona_Cedula)->withSuccess('Se han guardado los datos de la solicitud satisfactoriamente');
     }
 
     

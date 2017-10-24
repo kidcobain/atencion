@@ -84,9 +84,9 @@ class FuncionarioController extends Controller
         //dd($cedula);
         //$keyword=  input::get('cedula');
 
-        $persona = $this->buscarPorCedula($request->cedula);
-        return view('personas',[
-            'persona' => $persona
+        $funcionarios = $this->buscarPorCedula($request->cedula);
+        return view('funcionarios',[
+            'funcionarios' => $funcionarios
         ]);
     }
 
