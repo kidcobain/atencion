@@ -11,11 +11,11 @@
                     <form class="form-horizontal" method="POST" action="{{ route('register') }}">
                         {{ csrf_field() }}
 
-                        <div class="form-group{{ $errors->has('cedula') ? ' has-error' : '' }}">
+                       <div class="form-group{{ $errors->has('cedula') ? ' has-error' : '' }}">
                             <label for="cedula" class="col-md-4 control-label">* Cedula</label>
 
                             <div class="col-md-6">
-                                <input id="cedula" type="text" onKeyPress="return soloNumeros(event)" class="form-control" name="cedula" value="{{ old('cedula') }}" required autofocus>
+                                <input id="cedula" type="text" onKeyPress="return soloNumeros(event)" class="form-control" name="cedula" value=" {{ old('cedula') }}" required autofocus>
 
                                 @if ($errors->has('cedula'))
                                     <span class="help-block">
@@ -54,10 +54,17 @@
                             <label for="sexo" class="col-md-4 control-label">* Sexo</label>
 
                             <div class="col-md-6">
-                                <select class="form-control" id="sexo" class="form-control" name="sexo" value="{{ old('sexo') }}" required autofocus>
-                                  <option value="">seleccione una opcion</option>
-                                  <option value="m">Masculino</option>
-                                  <option value="f">Femenino</option>
+                                <select class="form-control" id="sexo" class="form-control" name="sexo" required autofocus>
+
+                                <option value="">seleccione una opcion</option>
+
+                                <option value="m" {{ old('sexo') == "m" ? 'selected' : '' }}>
+                                  Masculino
+                                </option>
+
+                                <option value="f" {{ old('sexo') == "f" ? 'selected' : '' }}>
+                                  Femenino
+                                </option>
                                 </select>
 
                                 @if ($errors->has('sexo'))
@@ -74,10 +81,10 @@
 
                                 <select class="form-control" id="departamento" class="form-control" name="departamento" value="{{ old('departamento') }}" required autofocus>
                                   <option value="">seleccione una opcion</option>
-                                  <option value="tecnica">Tenica</option>
-                                  <option value="area legal">Area legal</option>
-                                  <option value="coordinacion general">Coordinacion general</option>
-                                  <option value="atencion al campesino">Atención al campesino</option>
+                                  <option value="tecnica" {{ old('departamento') == "tecnica" ? 'selected' : '' }}>Tecnica</option>
+                                  <option value="area legal"{{ old('departamento') == "area legal" ? 'selected' : '' }}>Area legal</option>
+                                  <option value="coordinacion general"{{ old('departamento') == "coordinacion general" ? 'selected' : '' }}>Coordinacion general</option>
+                                  <option value="atencion al campesino"{{ old('departamento') == "atencion al campesino" ? 'selected' : '' }}>Atención al campesino</option>
                                 </select>
 
                                 @if ($errors->has('departamento'))
@@ -94,8 +101,8 @@
 
                                 <select class="form-control" id="cargo" class="form-control" name="cargo" value="{{ old('cargo') }}" required autofocus>
                                   <option value="">seleccione una opcion</option>
-                                  <option value="analista">Analista</option>
-                                  <option value="jefe de area">Jefe de area</option>
+                                  <option value="analista" {{ old('cargo') == "analista" ? 'selected' : '' }}>Analista</option>
+                                  <option value="jefe de area" {{ old('cargo') == "jefe de area" ? 'selected' : '' }}>Jefe de area</option>
                                   
                                 </select>
 
@@ -110,7 +117,7 @@
                             <label for="telefono" class="col-md-4 control-label">* Telefono</label>
 
                             <div class="col-md-6">
-                                <input id="telefono" type="text" class="form-control" name="telefono" value="{{ old('telefono') }}" required autofocus>
+                                <input id="telefono" type="text" class="form-control" name="telefono" onKeyPress="return soloNumeros(event)" value="{{ old('telefono') }}" required autofocus>
 
                                 @if ($errors->has('telefono'))
                                     <span class="help-block">
@@ -161,35 +168,39 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">* Contraseña</label>
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
 
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
+                            <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                                <label for="password" class="col-md-4 control-label">* Contraseña</label>
+
+                                <div class="col-md-6">
+                                    <input id="password" type="password" class="form-control" name="password" required>
+
+                                    @if ($errors->has('password'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('password') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
                             </div>
-                        </div>
+                        
 
-                        <div class="form-group">
-                            <label for="password-confirm" class="col-md-4 control-label">* Confirmar contraseña</label>
+                            <div class="form-group">
+                                <label for="password-confirm" class="col-md-4 control-label">* Confirmar contraseña</label>
 
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                                <div class="col-md-6">
+                                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Registrar
-                                </button>
+                            <div class="form-group">
+                                <div class="col-md-6 col-md-offset-4">
+                                    <button type="submit" class="btn btn-primary">
+                                        Registrar
+                                    </button>
+                                </div>
                             </div>
-                        </div>
+
                     </form>
                     <p>* Los campos marcados con * son requisito obligatorio para el registro</p>
                 </div>

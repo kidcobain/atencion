@@ -114,6 +114,10 @@ class PersonaController extends Controller
         //$solicitud = solicitudes::find($id);
         $persona = $this->findByCedula($cedula);
         $request->oldcedula = $cedula;
+        //$request->rif = $request->rif or '';
+        //$request->representante = $request->representante or '';
+        //dd($request->rif);
+        
 
         $request->validate([
             'cedula'            => 'required|string|max:9|unique:personas,cedula,'.$cedula.',cedula',
@@ -121,8 +125,8 @@ class PersonaController extends Controller
             'apellido'          => 'required|string|max:50|min:5',
             'sexo'              => 'required|string|max:1',
             'tipo'              => 'required|string|max:255',
-            'rif'               => 'required|string|max:255',
-            'representante'     => 'required|string|max:255',
+            'rif'               => 'sometimes|required|string|max:255',
+            'representante'     => 'sometimes|required|string|max:255',
             'nivel_educativo'   => 'required|string|max:255',
             'municipio'         => 'required|string|max:255',
             'parroquia'         => 'required|string|max:255',

@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Editar solicitud</div>
+                <div class="panel-heading">Editar datos de persona</div>
 
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" action="/persona/{{$persona->cedula}}/editar">
@@ -15,7 +15,7 @@
                             <label for="cedula" class="col-md-4 control-label">* Cedula</label>
 
                             <div class="col-md-6">
-                                <input id="cedula" type="number" class="form-control" name="cedula" value="{{ $persona->cedula or old('cedula') }}" required autofocus>
+                                <input id="cedula" type="text" maxlength="9" onKeyPress="return soloNumeros(event)" class="form-control" name="cedula" value="{{ $persona->cedula or old('cedula') }}" required autofocus>
 
                                 @if ($errors->has('cedula'))
                                     <span class="help-block">
@@ -98,31 +98,36 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="form-group{{ $errors->has('rif') ? ' has-error' : '' }}">
-                            <label for="rif" class="col-md-4 control-label">** Rif</label>
+                        <div class="juridica" style="display: none;">
+                            
+                            <div class="form-group{{ $errors->has('rif') ? ' has-error' : '' }}">
+                                <label for="rif" class="col-md-4 control-label">** Rif</label>
 
-                            <div class="col-md-6">
-                                <input id="rif" type="text" class="form-control" name="rif" value="{{ $persona->rif or old('rif') }}" required autofocus>
+                                <div class="col-md-6">
+                                    <input id="rif" type="text" class="form-control" name="rif" value="{{ $persona->rif or old('rif') }}" required autofocus disabled="disabled">
 
-                                @if ($errors->has('rif'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('rif') }}</strong>
-                                    </span>
-                                @endif
+                                    @if ($errors->has('rif'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('rif') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group{{ $errors->has('representante') ? ' has-error' : '' }}">
-                            <label for="representante" class="col-md-4 control-label">** Representante</label>
 
-                            <div class="col-md-6">
-                                <input id="representante" type="text" class="form-control" name="representante" value="{{ $persona->representante or old('representante') }}" required autofocus>
+                            <div class="form-group{{ $errors->has('representante') ? ' has-error' : '' }}">
+                                <label for="representante" class="col-md-4 control-label">** Representante</label>
 
-                                @if ($errors->has('representante'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('representante') }}</strong>
-                                    </span>
-                                @endif
+                                <div class="col-md-6">
+                                    <input id="representante" type="text" class="form-control" name="representante" value="{{ $persona->representante or old('representante') }}" required autofocus disabled="disabled" >
+
+                                    @if ($errors->has('representante'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('representante') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
                             </div>
+
                         </div>
                         <div class="form-group{{ $errors->has('nivel_educativo') ? ' has-error' : '' }}">
                             <label for="nivel_educativo" class="col-md-4 control-label">* Nivel educativo</label>
@@ -267,7 +272,7 @@
                             <label for="telefono" class="col-md-4 control-label">* Telefono</label>
 
                             <div class="col-md-6">
-                                <input id="telefono" type="text" class="form-control" name="telefono" value="{{ $persona->telefono or old('telefono') }}" required autofocus>
+                                <input id="telefono" maxlength="11" type="text" onKeyPress="return soloNumeros(event)" class="form-control" name="telefono" value="{{ $persona->telefono or old('telefono') }}" required autofocus>
 
                                 @if ($errors->has('telefono'))
                                     <span class="help-block">
@@ -307,7 +312,14 @@
 </div>
 <script src="/js/jquery-2.1.4.js" type="text/javascript"></script>
 <script>
+    function soloNumeros(e){
+    var key = window.Event ? e.which : e.keyCode
+    return (key >= 48 && key <= 57)
+    }
     $(document).ready(function() {
+
+        
+
         //var parroquia = $('.parroquia');
         var oldparroquia ="{{ $persona->parroquia or old('parroquia') }}" || 0;
         console.log($('#parroquia').val());
@@ -347,6 +359,37 @@
             mostrarparroquias();
         }
         $('#municipio').change(mostrarparroquias);
+        if ($('#tipo').val() == 'juridica') {
+                $( ".juridica" ).show( "slow" );
+                $( "#rif, #representante" ).prop('disabled', false);
+
+            }
+            else{
+                $( ".juridica" ).hide( "slow" );
+                $( "#rif, #representante" ).prop('disabled', true);
+
+            }
+
+        $('#tipo').change(function(event) {
+
+            //$( ".juridica" ).toggle( "slow" );
+            if ($('#tipo').val() == 'juridica') {
+                $( ".juridica" ).show( "slow" );
+                $( "#rif, #representante" ).prop('disabled', false);
+
+            }
+            else{
+                $( ".juridica" ).hide( "slow" );
+                $( "#rif, #representante" ).prop('disabled', true);
+
+            }
+        
+ 
+
+        //$( ".contrasenias :visible" ).hide('slow');
+        //$( ".contrasenias :hidden" ).slideDown( "slow" );
+
+    });
 
 
 

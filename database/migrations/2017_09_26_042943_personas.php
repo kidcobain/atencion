@@ -22,7 +22,7 @@ class Personas extends Migration
             $table->string('apellido');
             $table->enum('sexo', ['f', 'm']);
             $table->string('tipo');
-            $table->string('rif');
+            $table->string('rif')->nullable();
             $table->string('representante')->nullable();
             $table->string('nivel_educativo');
             $table->string('municipio');
