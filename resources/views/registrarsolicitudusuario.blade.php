@@ -95,8 +95,6 @@
                             <div class="col-md-6">
                                 <input id="persona_Cedula" type="text" class="form-control" name="persona Cedula" value="{{ $cedula or old('persona_Cedula') }}" required autofocus >
 
-{{-- $solicitudes->persona_Cedula --}}
-
                                 @if ($errors->has('persona_Cedula'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('persona_Cedula') }}</strong>
@@ -104,6 +102,9 @@
                                 @endif
                             </div>
                         </div>
+
+                        <input type=hidden name=cedulapersona id="cedulapersona" value="">
+
                         <div class="form-group{{ $errors->has('funcionario_Cedula') ? ' has-error' : '' }}">
                             <label for="funcionario_Cedula" class="col-md-4 control-label"> Funcionario Cedula</label>
 
@@ -117,6 +118,8 @@
                                 @endif
                             </div>
                         </div>
+
+                        <input type=hidden name=cedulafuncionario id="cedulafuncionario" value="">
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
@@ -132,36 +135,63 @@
         </div>
     </div>
 </div>
-
-<script>
-    /*
+<link href="/css/jquery-ui.css" rel="stylesheet" type="text/css">
+<link href="/css/jquery-ui.structure.min.css" rel="stylesheet" type="text/css">
+<link href="/css/jquery-ui.theme.min.css" rel="stylesheet" type="text/css">
 <script src="/js/jquery-ui.min.js" type="text/javascript"></script>
+<script>
+    
     
 $( function() {
-    function log( message ) {
-      $( "<div>" ).text( message ).prependTo( "#log" );
-      $( "#log" ).scrollTop( 0 );
-    }
- 
-    $( "#birds" ).autocomplete({
+   
+    $( "#funcionario_Cedula" ).autocomplete({
       source: function( request, response ) {
         $.ajax( {
-          url: "search.php",
-          dataType: "jsonp",
+          url: "/funcionario/autocomplete",
+          type: 'get',
+          dataType: "json",
           data: {
-            term: request.term
+            nombre: request.term
           },
           success: function( data ) {
             response( data );
           }
-        } );
+        });
       },
       minLength: 2,
       select: function( event, ui ) {
-        log( "Selected: " + ui.item.value + " aka " + ui.item.id );
+        event.preventDefault();
+        $('#cedulafuncionario').val(ui.item.value);
+        $('#funcionario_Cedula').val(ui.item.label);
       }
-    } );
-  } );
-  */
+      
+
+    });
+
+    $( "#persona_Cedula" ).autocomplete({
+      source: function( request, response ) {
+        $.ajax( {
+          url: "/persona/autocomplete",
+          type: 'get',
+          dataType: "json",
+          data: {
+            nombre: request.term
+          },
+          success: function( data ) {
+            response( data );
+          }
+        });
+      },
+      minLength: 2,
+      select: function( event, ui ) {
+        event.preventDefault();
+        $('#cedulapersona').val(ui.item.value);
+        $('#persona_Cedula').val(ui.item.label);
+      }
+      
+
+    });
+});
+  
 </script>
 @endsection

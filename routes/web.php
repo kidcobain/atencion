@@ -72,6 +72,10 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::post('/persona/{cedula}/editar', 'PersonaController@editar'); //falta
 
 
+	Route::get('/funcionario/autocomplete', 'FuncionarioController@autocomplete'); 
+
+	Route::get('/persona/autocomplete', 'PersonaController@autocomplete'); 
+	
 
 	Route::get('/home', 'HomeController@index')->name('home');
 
@@ -81,9 +85,11 @@ Route::group(['middleware' => 'auth'], function () {
 
 	Route::get('/funcionario/{cedula}/eliminar','FuncionarioController@eliminar');
 
-	Route::get('/funcionario/{cedula}/edicion', 'FuncionarioController@edicion'); //falta
+	Route::get('/funcionario/{cedula}/edicion', 'FuncionarioController@edicion');
 
-	Route::post('/funcionario/{cedula}/editar', 'FuncionarioController@editar'); //falta
+	Route::post('/funcionario/{cedula}/editar', 'FuncionarioController@editar');
+
+
 });
 
 

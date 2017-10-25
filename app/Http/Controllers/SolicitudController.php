@@ -47,7 +47,11 @@ class SolicitudController extends Controller
     public function guardarregistro(Request $request)
     {
         //dd($request);
-        //dd($request->cedula);
+        //dd($request->cedulapersona);
+         //$request->persona_Cedula = $request->cedulapersona;
+         //$request->funcionario_Cedula = $request->cedulafuncionario;
+         //dd($request->funcionario_Cedula);
+
         $request->validate([
             'lugar'              => 'required|string|max:50|min:5',
             'tipo'               => 'required|string|max:255',
@@ -55,8 +59,8 @@ class SolicitudController extends Controller
             'observaciones'      => 'required|string|max:255',
             'fundo'              => 'required|string|max:255',
             'fecha'              => 'required|date_format:"d/m/Y"',
-            'persona_Cedula'     => 'required|string|max:255|exists:personas,cedula',
-            'funcionario_Cedula' => 'string|max:255|exists:funcionarios,cedula',
+            'cedulapersona'     => 'required|string|max:255|exists:personas,cedula',
+            'cedulafuncionario' => 'string|max:255|exists:funcionarios,cedula',
             
         ]);
         
@@ -68,12 +72,12 @@ class SolicitudController extends Controller
             'observaciones'      => $request->observaciones,
             'fundo'              => $request->fundo,
             'fecha'              => $request->fecha,
-            'persona_Cedula'     => $request->persona_Cedula,
-            'funcionario_Cedula' => $request->funcionario_Cedula,
+            'persona_Cedula'     => $request->cedulapersona,
+            'funcionario_Cedula' => $request->cedulafuncionario,
             
 
         ]);
-         return redirect('/persona/'.$request->persona_Cedula)->withSuccess('Se han guardado los datos de la solicitud satisfactoriamente');
+         return redirect('/persona/'.$request->cedulapersona)->withSuccess('Se han guardado los datos de la solicitud satisfactoriamente');
     }
 
     

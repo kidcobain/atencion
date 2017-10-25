@@ -17,6 +17,8 @@ class FuncionarioController extends Controller
             'funcionario' => $funcionario,
         ]);
     }
+
+   
     public function edicion($cedula)
     {
         $funcionario = $this->findByCedula($cedula);
@@ -93,6 +95,13 @@ class FuncionarioController extends Controller
     protected function buscarPorCedula($cedula)
     {
         return funcionarios::where("cedula", "LIKE", "\\" . $cedula . "%")->get();
+        //return funcionarios::where('cedula', $cedula)->firstOrFail();
+    }
+
+    protected function autocomplete(Request $request)
+    {
+
+        return funcionarios::where("nombre", "LIKE", "\\" . $request->nombre . "%")->select(\DB::raw(" CONCAT_WS(' ', nombre, apellido, cedula) AS label, cedula as value"))->get();
         //return funcionarios::where('cedula', $cedula)->firstOrFail();
     }
 

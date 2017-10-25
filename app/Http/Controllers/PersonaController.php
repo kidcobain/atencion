@@ -60,6 +60,12 @@ class PersonaController extends Controller
         //return personas::where('cedula', $cedula)->firstOrFail();
     }
 
+    protected function autocomplete(Request $request)
+    {
+        return personas::where("nombre", "LIKE", "\\" . $request->nombre . "%")->select(\DB::raw(" CONCAT_WS(' ', nombre, apellido, cedula) AS label, cedula as value"))->get();
+        //return funcionarios::where('cedula', $cedula)->firstOrFail();
+    }
+
     public function store(Request $request)
     {
         //dd($request);
