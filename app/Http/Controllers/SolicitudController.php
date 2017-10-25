@@ -59,8 +59,8 @@ class SolicitudController extends Controller
             'observaciones'      => 'required|string|max:255',
             'fundo'              => 'required|string|max:255',
             'fecha'              => 'required|date_format:"d/m/Y"',
-            'cedulapersona'     => 'required|string|max:255|exists:personas,cedula',
-            'cedulafuncionario' => 'string|max:255|exists:funcionarios,cedula',
+            'persona_Cedula'     => 'required|string|max:255|exists:personas,cedula',
+            'funcionario_Cedula' => 'string|max:255|exists:funcionarios,cedula',
             
         ]);
         
