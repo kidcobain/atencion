@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\solicitudes;
+use Illuminate\Support\Facades\Auth;
 
 class SolicitudController extends Controller
 {
@@ -51,6 +52,7 @@ class SolicitudController extends Controller
          //$request->persona_Cedula = $request->cedulapersona;
          //$request->funcionario_Cedula = $request->cedulafuncionario;
          //dd($request->funcionario_Cedula);
+         //dd(Auth::user()->usuario);
 
         $request->validate([
             'lugar'              => 'required|string|max:50|min:5',
@@ -60,7 +62,6 @@ class SolicitudController extends Controller
             'fundo'              => 'required|string|max:255',
             'fecha'              => 'required|date_format:"d/m/Y"',
             'persona_Cedula'     => 'required|string|max:255|exists:personas,cedula',
-            'funcionario_Cedula' => 'string|max:255|exists:funcionarios,cedula',
             
         ]);
         
@@ -72,12 +73,12 @@ class SolicitudController extends Controller
             'observaciones'      => $request->observaciones,
             'fundo'              => $request->fundo,
             'fecha'              => $request->fecha,
-            'persona_Cedula'     => $request->cedulapersona,
-            'funcionario_Cedula' => $request->cedulafuncionario,
+            'persona_Cedula'     => $request->persona_Cedula,
+            'funcionario_Cedula' => Auth::user()->funcionario_Cedula,
             
 
         ]);
-         return redirect('/persona/'.$request->cedulapersona)->withSuccess('Se han guardado los datos de la solicitud satisfactoriamente');
+         return redirect('/persona/'.$request->persona_Cedula)->withSuccess('Se han guardado los datos de la solicitud satisfactoriamente');
     }
 
     

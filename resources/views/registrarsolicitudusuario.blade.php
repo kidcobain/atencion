@@ -104,19 +104,7 @@
                         </div>
 
 
-                        <div class="form-group{{ $errors->has('funcionario_Cedula') ? ' has-error' : '' }}">
-                            <label for="funcionario_Cedula" class="col-md-4 control-label"> Funcionario Cedula</label>
-
-                            <div class="col-md-6">
-                                <input id="funcionario_Cedula" type="text" class="form-control" name="funcionario_Cedula" value="{{ old('funcionario_Cedula') }}" required autofocus>
-
-                                @if ($errors->has('funcionario_Cedula'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('funcionario_Cedula') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+                        
 
 
                         <div class="form-group">
