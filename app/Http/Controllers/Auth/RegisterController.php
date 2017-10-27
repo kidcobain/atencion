@@ -75,17 +75,17 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'cedula' => 'required|string|max:9|unique:funcionarios',
-            'email' => 'required|string|email|max:50|unique:funcionarios',
-            'nombre' => 'required|string|max:50|min:5',
-            'apellido' => 'required|string|max:50|min:5',
-            'sexo' => 'required|string',
-            'telefono' => 'required|string|min:10|max:11',
-            'direccion' => 'required|string|max:255',
-            'cargo' => 'required|string|max:50',
+            'cedula'       => 'required|string|max:9|unique:funcionarios',
+            'email'        => 'required|string|email|max:50|unique:funcionarios',
+            'nombre'       => 'required|string|max:50|min:5',
+            'apellido'     => 'required|string|max:50|min:5',
+            'sexo'         => 'required|string',
+            'telefono'     => 'required|string|min:10|max:11',
+            'direccion'    => 'required|string|max:255',
+            'cargo'        => 'required|string|max:50',
             'departamento' => 'required|string|max:30',
-            'usuario' => 'required|string|min:6|max:40|unique:usuarios',
-            'password' => 'required|string|min:6|max:20',
+            'usuario'      => 'required|string|min:6|max:40|unique:usuarios',
+            'password'     => 'required|string|min:6|max:20',
         ]);
     }
 
@@ -98,14 +98,14 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
          funcionarios::create([
-            'cedula' => $data['cedula'],
-            'email' => $data['email'],
-            'nombre' => $data['nombre'],
-            'apellido' => $data['apellido'],
-            'sexo' => $data['sexo'],
-            'telefono' => $data['telefono'],
-            'direccion' => $data['direccion'],
-            'cargo' => $data['cargo'],
+            'cedula'       => $data['cedula'],
+            'email'        => $data['email'],
+            'nombre'       => $data['nombre'],
+            'apellido'     => $data['apellido'],
+            'sexo'         => $data['sexo'],
+            'telefono'     => $data['telefono'],
+            'direccion'    => $data['direccion'],
+            'cargo'        => $data['cargo'],
             'departamento' => $data['departamento'],
         ]);
          Session()->flash('exito', 'Usuario registrado correctamente, por favor inicie sesion.');

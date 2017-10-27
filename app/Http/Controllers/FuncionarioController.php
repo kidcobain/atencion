@@ -35,6 +35,25 @@ class FuncionarioController extends Controller
         $funcionario = $this->findByCedula($cedula);
         //dd($funcionario);
 
+        $request->validate([
+            'cedula'            => 'required|string|max:9|unique:funcionarios',
+            'nombre'            => 'required|string|max:50|min:5',
+            'apellido'          => 'required|string|max:50|min:5',
+            'sexo'              => 'required|string|max:1',
+            'tipo'              => 'required|string|max:255',
+            'rif'               => 'required|string|max:255',
+            'representante'     => 'required|string|max:255',
+            'nivel_educativo'   => 'required|string|max:255',
+            'municipio'         => 'required|string|max:255',
+            'parroquia'         => 'required|string|max:255',
+            'sector'            => 'required|string|max:255',
+            'direccion'         => 'required|string|max:255',
+            'unidad_produccion' => 'required|string|max:255',
+            'organizacion'      => 'required|string|max:255',
+            'telefono'          => 'required|string|min:10|max:11',
+            'email'             => 'required|string|email|max:50|unique:funcionarios',
+        ]);
+
         
         $funcionario->cedula       = $request->cedula;
         $funcionario->nombre       = $request->nombre;

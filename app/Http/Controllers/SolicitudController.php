@@ -22,6 +22,17 @@ class SolicitudController extends Controller
 
         $request->fecha = \Carbon\Carbon::createFromFormat('d/m/Y', $request->fecha);
 
+        $request->validate([
+            'lugar'              => 'required|string|max:50|min:5',
+            'tipo'               => 'required|string|max:255',
+            'solicitud'          => 'required|string|max:255',
+            'observaciones'      => 'required|string|max:255',
+            'fundo'              => 'required|string|max:255',
+            'fecha'              => 'required|date_format:"d/m/Y"',
+            'persona_Cedula'     => 'required|string|max:255|exists:personas,cedula',
+            
+        ]);
+
         $solicitud->lugar              = $request->lugar;
         $solicitud->tipo               = $request->tipo;
         $solicitud->solicitud          = $request->solicitud;
@@ -29,7 +40,6 @@ class SolicitudController extends Controller
         $solicitud->fundo              = $request->fundo;
         $solicitud->fecha              = $request->fecha;
         $solicitud->persona_Cedula     = $request->persona_Cedula;
-        $solicitud->funcionario_Cedula = $request->funcionario_Cedula;
 
     	$solicitud->save();
     	return redirect('/persona/'.$request->persona_Cedula)->withSuccess('Se han actualizado los datos de la solicitud satisfactoriamente');
