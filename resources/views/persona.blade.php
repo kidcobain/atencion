@@ -174,34 +174,40 @@
                       <th></th>
                     </tr>
                   </thead>
-                  <tbody>
-                    @foreach( $persona->solicitudes as $solicitud )
-                    <tr>
-                      <td>{{$solicitud->lugar}}</td>
-                      <td>{{$solicitud->tipo}}</td>
-                      <td>{{$solicitud->solicitud}}</td>
-                      <td>{{$solicitud->observaciones}}</td>
-                      <td>{{$solicitud->fundo}}</td>
-                      <td>
-                            <a href="/funcionario/{{$solicitud->funcionario->cedula}}">
-                                {{$solicitud->funcionario->nombre.' '.$solicitud->funcionario->apellido}}
-                            </a>
-                        </td>
-                      <td>
-                        <a href="/solicitud/{{$solicitud->id}}/edicion" class="button tiny radius secondary">MODIFICAR</a>
-                        <!-- <a href="/solicitud/{{$solicitud->id}}/eliminar" class="button tiny radius alert" data-toggle='modal' data-target='#modalEliminar'>ELIMINAR</a> 
-                        <a href="#" data-href="/solicitud/{{$solicitud->id}}/eliminar" data-toggle="modal" data-target="#confirm-delete">Delete record #23</a><br>
-                        -->
-                            
-                            <button class="btn btn-danger" data-href="/solicitud/{{$solicitud->id}}/eliminar" data-toggle="modal" data-target="#confirm-delete">
-                                Eliminar
-                            </button>
-                      </td>
-                    </tr>
-                    @endforeach
-                  </tbody>
+                  @if(count($persona->solicitudes)>=1)
+                      <tbody>
+                        @foreach( $persona->solicitudes()->paginate(10) as $solicitud )
+                        <tr>
+                          <td>{{$solicitud->lugar}}</td>
+                          <td>{{$solicitud->tipo}}</td>
+                          <td>{{$solicitud->solicitud}}</td>
+                          <td>{{$solicitud->observaciones}}</td>
+                          <td>{{$solicitud->fundo}}</td>
+                          <td>
+                                <a href="/funcionario/{{$solicitud->funcionario->cedula}}">
+                                    {{$solicitud->funcionario->nombre.' '.$solicitud->funcionario->apellido}}
+                                </a>
+                            </td>
+                          <td>
+                            <a href="/solicitud/{{$solicitud->id}}/edicion" class="button tiny radius secondary">MODIFICAR</a>
+                            <!-- <a href="/solicitud/{{$solicitud->id}}/eliminar" class="button tiny radius alert" data-toggle='modal' data-target='#modalEliminar'>ELIMINAR</a> 
+                            <a href="#" data-href="/solicitud/{{$solicitud->id}}/eliminar" data-toggle="modal" data-target="#confirm-delete">Delete record #23</a><br>
+                            -->
+                                
+                                <button class="btn btn-danger" data-href="/solicitud/{{$solicitud->id}}/eliminar" data-toggle="modal" data-target="#confirm-delete">
+                                    Eliminar
+                                </button>
+                          </td>
+                        </tr>
+                        @endforeach
+                      </tbody>
+                  @else
+                      
+                  </table>
+                            no existen solicitudes para esta persona
+                  @endif
                 </table>
-                {{-- $persona->links() --}}
+                {{ $persona->solicitudes()->paginate(10)->links() }}
             </div>
         </div>
     </div>

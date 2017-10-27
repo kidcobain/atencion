@@ -36,6 +36,7 @@
               <th>Accion</th>
             </tr>
           </thead>
+          @if(count($persona)>=1)
           <tbody>
             @foreach( $persona as $personaa )
             <tr>
@@ -70,12 +71,15 @@
             </tr>
             @endforeach
           </tbody>
+          @else
+              
+          </table>
+                    Por los momentos no existen personas registradas en el sistema
+          @endif
       </table>
-      @if(count($persona)>10)
 
         {{$persona->links() }}
 
-      @endif
 
     </div>
   </div>

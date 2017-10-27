@@ -211,7 +211,6 @@
         </div>
     </div>
 </div>
-<script src="/js/jquery-2.1.4.js" type="text/javascript"></script>
 <script>
 $(document).ready(function() {
     function soloNumeros(e){

@@ -38,7 +38,7 @@ Route::group(['middleware' => 'auth'], function () {
 	});
 */
 	Route::get('/funcionarios', function () {
-		$funcionarios = App\funcionarios::paginate(10);
+		$funcionarios = App\funcionarios::paginate(15);
 	    return view('funcionarios', compact('funcionarios'));
 	});
 

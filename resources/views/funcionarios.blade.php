@@ -62,11 +62,9 @@
             @endforeach
           </tbody>
       </table>
-      @if(count($funcionarios)>=10)
 
-        {{$funcionarios->links() }}
+        {{ $funcionarios->links() }}
 
-      @endif
 
     </div>
   </div>

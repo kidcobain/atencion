@@ -31,6 +31,7 @@
                       <th></th>
                     </tr>
                   </thead>
+                   @if(count($solicitudes)>=1)
                   <tbody>
                     @foreach( $solicitudes as $solicitud )
                     <tr>
@@ -64,12 +65,16 @@
                     </tr>
                     @endforeach
                   </tbody>
+                  @else
+                      
+                  </table>
+                            Por los momentos no existen solicitudes registradas en el sistema
+                  @endif
                 </table>
-                {{-- $persona->links() --}}
+                {{ $solicitudes->links() }}
             </div>
         </div>
     </div>
-    <script src="/js/jquery-2.1.4.js" type="text/javascript"></script>
 <script>
     $(document).ready(function() {
         $('#confirm-delete').on('show.bs.modal', function(e) {

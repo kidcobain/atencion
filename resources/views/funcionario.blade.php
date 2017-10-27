@@ -108,7 +108,7 @@
                   @if(count($funcionario->solicitudes)>=1)
 
                       <tbody>
-                        @foreach( $funcionario->solicitudes as $solicitud )
+                        @foreach( $funcionario->solicitudes()->paginate(10) as $solicitud )
                         <tr>
                           <td>
                             <a href="/persona/{{$solicitud->persona->cedula}}">
@@ -145,7 +145,7 @@
                             no existen solicitudes para este funcionario
                   @endif
                 </table>
-                {{-- $persona->links() --}}
+                {{ $funcionario->solicitudes()->paginate(10)->links() }}
             </div>
         </div>
     </div>
