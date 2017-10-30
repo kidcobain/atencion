@@ -32,6 +32,7 @@
               <th>Accion</th>
             </tr>
           </thead>
+          @if(count($funcionarios)>=1)
           <tbody>
             @foreach( $funcionarios as $funcionario )
 
@@ -61,9 +62,16 @@
             </tr>
             @endforeach
           </tbody>
+          @else
+              
+          </table>
+                     <p>No se encontraron los datos en el sistema</p>
+          @endif
       </table>
 
-        {{ $funcionarios->links() }}
+        @if(method_exists($funcionarios,'links'))
+            {{$funcionarios->links()}}
+        @endif
 
 
     </div>

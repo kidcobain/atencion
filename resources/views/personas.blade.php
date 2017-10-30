@@ -74,11 +74,13 @@
           @else
               
           </table>
-                    Por los momentos no existen personas registradas en el sistema
+                    <p>No se encontraron los datos en el sistema</p>
           @endif
       </table>
 
-        {{$persona->links() }}
+        @if(method_exists($persona,'links'))
+            {{$persona->links()}}
+        @endif
 
 
     </div>
